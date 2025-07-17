@@ -1,312 +1,171 @@
-# Wearable Sensors for Brain Disorder Detection Through Eye Movement Analysis
+# Brain Disorder Detection Through Eye Movement Analysis
+A comprehensive machine learning pipeline for identifying neurological disorder patterns from eye movement features extracted from wearable-sensor style trajectories.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
+## Table of Contents
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Data
+- Methods
+- Results
+- License
+- Contributing
+- Citation
 
-A comprehensive research project analyzing eye movement patterns collected from wearable sensors to detect and monitor brain disorders. This repository contains analysis code and documentation for using eye movements as biomarkers for neurological conditions.
+## Overview
+This project implements a machine learning pipeline tailored to the biomedical research problem represented in this folder. The workflow extracts biologically meaningful features, trains multiple predictive models, and reports interpretable outputs for research and educational use.
 
-## 📋 Table of Contents
+### Key Objectives
+- Feature Extraction: Extract comprehensive features that can highlight potential biomarkers or therapeutic signals
+- Model Training: Train and compare multiple machine learning models
+- Biomarker Identification: Identify the most important predictive features
+- Prediction: Classify outcomes and generate ranked insights for downstream validation
 
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Code Documentation](#code-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## Features
+### Comprehensive Feature Extraction
+- Domain-specific feature engineering from project datasets or synthetic demonstration inputs
+- Composition, distribution, and complexity-oriented metrics where applicable
+- Statistical summaries suitable for model training and interpretation
 
-## 🎯 Overview
+### Multiple ML Models
+- Random Forest Classifier
+- Gradient Boosting Classifier
+- Support Vector Machine (SVM)
+- Logistic Regression
 
-This repository provides computational tools and analysis scripts for processing eye movement data from wearable sensors. The codebase includes:
+### Comprehensive Evaluation
+- Cross-validation
+- ROC curves
+- Confusion matrices
+- Feature importance analysis
+- Model comparison
 
-- Python and R implementations for data analysis
-- Feature extraction algorithms
-- Statistical analysis tools
-- Machine learning classification models
-- Interactive Jupyter notebooks
+### Dual Language Support
+- Python implementation (.py scripts and Jupyter notebook)
+- R implementation (.R scripts and notebook-compatible workflow)
 
-## ✨ Features
+## Project Structure
+```text
+.
+|- README.md
+|- LICENSE
+|- requirements.txt
+|- .gitignore
+|- .gitattributes
+|- eye_movement_analysis.py
+|- eye_movement_analysis.R
+`- eye_movement_analysis.ipynb
+```
 
-- **Comprehensive Data Analysis**: Python and R scripts for complete eye movement data processing
-- **Feature Extraction**: Automated extraction of velocity, acceleration, saccade, and fixation metrics
-- **Statistical Analysis**: T-tests and other statistical methods to compare groups
-- **Machine Learning**: Classification models (Random Forest, SVM) for disorder detection
-- **Dimensionality Reduction**: PCA for feature analysis and visualization
-- **Interactive Notebooks**: Jupyter notebooks with detailed analysis and visualizations
-
-## 🚀 Installation
-
+## Installation
 ### Prerequisites
-
-- Python 3.9 or higher
-- R 4.0 or higher (optional, for R scripts)
+- Python 3.8+ or R 4.0+
 - Git
 
 ### Python Environment Setup
-
-1. Clone the repository:
+Option 1: Using pip
 ```bash
-git clone https://github.com/yourusername/wearable-sensors-brain-disorder-detection.git
-cd wearable-sensors-brain-disorder-detection
-```
-
-2. Create a virtual environment (recommended):
-```bash
-# Using venv
 python -m venv venv
-
-# Activate virtual environment
 # On Windows:
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
-```
-
-3. Install Python dependencies:
-```bash
 pip install -r requirements.txt
 ```
 
-### R Environment Setup (Optional)
-
-If you plan to use the R scripts:
-
-1. Install required R packages:
-```r
-install.packages(c("dplyr", "tidyr", "ggplot2", "corrplot", "caret", 
-                   "randomForest", "e1071", "pROC", "psych"))
-```
-
-2. Or use the R script to install dependencies:
+Option 2: Using conda
 ```bash
-Rscript install_r_packages.R
+conda env create -f environment.yml
+conda activate project-env
 ```
 
-### Jupyter Notebook Setup
-
-To use the Jupyter notebook:
-
+### R Environment Setup
 ```bash
-# Install Jupyter
-pip install jupyter notebook
-
-# Launch Jupyter
-jupyter notebook
+Rscript -e "install.packages(c('dplyr','data.table','stringr','caret','randomForest','e1071','pROC','ggplot2'))"
 ```
 
-Then open `eye_movement_analysis.ipynb`
-
-## 📖 Usage
-
-### Python Script
-
-Run the main Python analysis script:
-
+## Usage
+### Python Usage
+1. Run the main Python workflow
 ```bash
 python eye_movement_analysis.py
 ```
 
-The script includes:
-- Data loading and preprocessing
-- Feature extraction
-- Statistical analysis
-- Machine learning classification
-- Visualization generation
-
-### R Script
-
-Run the R analysis script:
-
-```r
-source("eye_movement_analysis.R")
+2. Launch notebook workflow
+```bash
+jupyter notebook eye_movement_analysis.ipynb
 ```
 
-Or from command line:
-
+### R Usage
+1. Run the main R workflow
 ```bash
 Rscript eye_movement_analysis.R
 ```
 
-### Jupyter Notebook
-
-For interactive analysis:
-
-1. Start Jupyter:
-```bash
-jupyter notebook
-```
-
-2. Open `eye_movement_analysis.ipynb`
-
-3. Run cells sequentially to perform the complete analysis
-
-### Custom Data
-
-To use your own data:
-
-1. Format your data as CSV with columns:
-   - `subject_id`: Unique identifier for each subject
-   - `time`: Time points
-   - `x_position`: X-coordinate of eye position
-   - `y_position`: Y-coordinate of eye position
-   - `group`: Classification label (e.g., 'healthy', 'disorder')
-
-2. Update the file path in the scripts:
-```python
-data = pd.read_csv('path/to/your/data.csv')
-```
-
-## 📁 Project Structure
-
-```
-wearable-sensors-brain-disorder-detection/
-│
-├── README.md                          # This file
-├── LICENSE                            # MIT License
-├── .gitignore                         # Git ignore rules
-├── .gitattributes                     # Git attributes
-├── requirements.txt                   # Python dependencies
-│
-├── eye_movement_analysis.py           # Main Python analysis script
-├── eye_movement_analysis.R            # R analysis script
-├── eye_movement_analysis.ipynb        # Jupyter notebook
-│
-├── data/                              # Data directory (create if needed)
-│   └── .gitkeep
-│
-├── results/                           # Analysis results (generated)
-│   ├── figures/
-│   └── models/
-│
-└── docs/                              # Additional documentation
-    └── methodology.md
-```
-
-## 📖 Code Documentation
-
-### Available Scripts
-
-- **`eye_movement_analysis.py`**: Python module with `EyeMovementAnalyzer` class
-  - Data preprocessing and filtering
-  - Feature extraction (velocity, acceleration, saccades, fixations)
-  - Statistical analysis (t-tests)
-  - PCA dimensionality reduction
-  - Machine learning classification (Random Forest, SVM)
-  - Visualization functions
-
-- **`eye_movement_analysis.R`**: R script with equivalent functionality
-  - Data processing functions
-  - Statistical analysis
-  - Machine learning models
-  - Visualization capabilities
-
-- **`eye_movement_analysis.ipynb`**: Interactive Jupyter notebook
-  - Step-by-step analysis workflow
-  - Interactive visualizations
-  - Code examples and explanations
+## Data
+### Dataset Description
+This project is configured for reproducible research workflows using either synthetic/demo data or project-specific real data where available.
 
 ### Data Format
+Expected format generally includes:
+- Feature columns (numeric/categorical predictors)
+- Target label column for classification or prediction
+- Optional metadata columns for stratified analysis
 
-Expected CSV format:
-- `subject_id`: Unique identifier for each subject
-- `time`: Time points
-- `x_position`: X-coordinate of eye position
-- `y_position`: Y-coordinate of eye position
-- `group`: Classification label (e.g., 'healthy', 'disorder')
+### Dataset License
+Please refer to original data source licenses and attribution requirements before reuse.
 
-### Key Functions
+## Methods
+### Feature Extraction
+The pipeline extracts engineered features relevant to the specific biomedical task in this folder.
 
-**Python (`eye_movement_analysis.py`)**:
-- `EyeMovementAnalyzer.load_data()`: Load data from CSV
-- `EyeMovementAnalyzer.preprocess_data()`: Filter and clean data
-- `EyeMovementAnalyzer.extract_features()`: Extract eye movement features
-- `EyeMovementAnalyzer.perform_statistical_analysis()`: Run t-tests
-- `EyeMovementAnalyzer.apply_pca()`: Dimensionality reduction
-- `EyeMovementAnalyzer.train_classifier()`: Train ML models
-- `EyeMovementAnalyzer.visualize_results()`: Generate plots
+### Machine Learning Models
+- Random Forest
+- Gradient Boosting
+- SVM
+- Logistic Regression
 
-**R (`eye_movement_analysis.R`)**:
-- `load_eye_movement_data()`: Load data
-- `preprocess_eye_data()`: Preprocess data
-- `extract_eye_features()`: Extract features
-- `perform_statistical_analysis()`: Statistical tests
-- `apply_pca()`: PCA analysis
-- `train_classifier()`: Train models
-- `create_visualizations()`: Generate plots
+### Evaluation Metrics
+- Accuracy
+- AUC-ROC
+- Cross-validation
+- Feature importance
 
-## 🤝 Contributing
+## Results
+The pipeline generates:
+- Feature importance rankings
+- Model performance comparison
+- ROC and confusion-matrix visualizations
+- Ranked biomarker or predictor candidates
 
-Contributions are welcome! Please follow these guidelines:
+Results are typically saved in generated output directories or notebook artifacts.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## License
+This project is licensed under the MIT License. See `LICENSE` for details.
 
-### Code Style
+## Contributing
+Contributions are welcome.
+- Fork the repository
+- Create a feature branch
+- Commit your changes
+- Push and open a Pull Request
 
-- Python: Follow PEP 8 style guide
-- R: Follow tidyverse style guide
-- Include docstrings for all functions
-- Add comments for complex logic
+## Citation
+If you use this project in your research, please cite this repository and reviewed paper sources referenced in project documentation.
 
-### Reporting Issues
+## Acknowledgments
+Thanks to contributors and the open-source communities behind scikit-learn, pandas, matplotlib, seaborn, and R ecosystem packages.
 
-If you encounter any issues or have suggestions, please open an issue on GitHub with:
-- Description of the problem
-- Steps to reproduce
-- Expected vs. actual behavior
-- System information (OS, Python/R versions)
+## Contact
+For questions or suggestions, please open an issue on GitHub.
 
-## 📄 License
+## Related Projects
+- scikit-learn
+- pandas
+- Biopython (optional)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Note: This project is for research and educational purposes. Validate predictions with experimental or clinical evidence before real-world decision making.
 
-## 📚 Additional Resources
-
-- **Code Documentation**: Inline documentation in Python and R scripts
-- **Jupyter Notebook**: Interactive analysis with detailed explanations
-
-## 👥 Authors
-
-- Research Team
-
-## 🙏 Acknowledgments
-
-- Researchers and clinicians working on eye movement analysis
-- Open-source community for excellent tools and libraries
-- Study participants who contributed data
-
-## 📧 Contact
-
-For questions, suggestions, or collaborations, please:
-
-- Open an issue on GitHub
-- Contact the research team
-
-## 🔮 Future Work
-
-- [ ] Integration with other physiological signals (multi-modal approach)
-- [ ] Real-time analysis capabilities
-- [ ] Longitudinal studies for disease progression tracking
-- [ ] Validation in diverse populations
-- [ ] Development of mobile applications
-- [ ] Cloud-based data processing infrastructure
-- [ ] Personalized baseline establishment
-
-## 📝 Changelog
-
-### Version 1.0.0 (2024)
-- Initial release
-- Python and R analysis scripts
-- Jupyter notebook implementation
-- Comprehensive documentation
-
----
-
-**Note**: This project is for research and educational purposes. The analysis code uses synthetic data for demonstration. For clinical applications, proper validation with real-world data and regulatory approval are required.
-
+**Last Updated**: July 2025
