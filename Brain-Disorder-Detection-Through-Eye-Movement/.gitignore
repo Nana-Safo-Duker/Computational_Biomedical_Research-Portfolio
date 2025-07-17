@@ -89,6 +89,9 @@ results/
 figures/
 plots/
 *.png
+!assets/
+!assets/*.png
+!assets/**/*.png
 *.jpg
 *.pdf
 !README_images/*.png

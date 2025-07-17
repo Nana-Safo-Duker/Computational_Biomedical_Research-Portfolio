@@ -142,6 +142,17 @@ The pipeline generates:
 
 Results are typically saved in generated output directories or notebook artifacts.
 
+
+## Visualizations
+
+Running the project’s primary Python analysis script regenerates a committed overview figure used below:
+
+![Overview visualization](assets/overview.png)
+
+Synthetic wearable eye-movement traces for healthy vs disorder groups and group-wise feature means.
+
+> Demonstration figure generated from synthetic/demo inputs unless a licensed dataset is provided locally.
+
 ## License
 This project is licensed under the MIT License. See `LICENSE` for details.
 

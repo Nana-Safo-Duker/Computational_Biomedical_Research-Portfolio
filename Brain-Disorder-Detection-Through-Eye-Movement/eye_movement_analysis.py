@@ -434,7 +434,7 @@ def main():
     
     # Example: Generate synthetic data for demonstration
     print("Generating synthetic eye movement data for demonstration...")
-    np.random.seed(42)
+    np.random.seed(151)
     
     # Generate synthetic data for healthy and disorder groups
     n_samples = 100
@@ -505,7 +505,9 @@ def main():
     
     # Visualize results
     print("\nGenerating visualizations...")
-    analyzer.visualize_results(features_pca, labels_series)
+    from pathlib import Path
+    Path('assets').mkdir(parents=True, exist_ok=True)
+    analyzer.visualize_results(features_pca, labels_series, save_path='assets/overview.png')
 
 
 if __name__ == "__main__":
