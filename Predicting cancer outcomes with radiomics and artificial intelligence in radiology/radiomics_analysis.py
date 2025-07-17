@@ -563,7 +563,7 @@ def main():
     print("\n1. Loading data...")
     # This would typically load from actual DICOM/NIfTI files
     # For demonstration, we create synthetic data
-    np.random.seed(42)
+    np.random.seed(191)
     n_samples = 100
     
     # Simulate radiomic features
@@ -648,7 +648,9 @@ def main():
     
     # Visualization
     print("\n7. Creating visualizations...")
-    visualize_features(df, feature_cols[:6], 'outcome')
+    from pathlib import Path
+    Path('assets').mkdir(parents=True, exist_ok=True)
+    visualize_features(df, feature_cols[:6], 'outcome', save_path='assets/overview.png')
     
     print("\n" + "=" * 60)
     print("Analysis complete!")

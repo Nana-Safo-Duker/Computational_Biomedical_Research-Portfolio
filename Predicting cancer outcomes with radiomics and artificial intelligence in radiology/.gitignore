@@ -175,6 +175,9 @@ results/
 figures/
 plots/
 *.png
+!assets/
+!assets/*.png
+!assets/**/*.png
 *.jpg
 *.jpeg
 *.pdf

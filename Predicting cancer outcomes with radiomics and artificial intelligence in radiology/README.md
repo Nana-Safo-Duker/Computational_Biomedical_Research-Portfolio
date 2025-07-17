@@ -330,4 +330,15 @@ For questions, suggestions, or collaboration inquiries, please open an issue on 
 
 **Note**: This project is for educational and research purposes. Clinical applications require proper validation, regulatory approval, and ethical considerations. Always consult with medical professionals for clinical decision-making.
 
+
+## Visualizations
+
+Running the project’s primary Python analysis script regenerates a committed overview figure used below:
+
+![Overview visualization](assets/overview.png)
+
+Radiomics model AUC comparison and texture/shape feature scatter colored by outcome.
+
+> Demonstration figure generated from synthetic/demo inputs unless a licensed dataset is provided locally.
+
 **Last Updated**: July 2025
