@@ -358,7 +358,7 @@ PUSH_TO_GITHUB.bat
 
 ---
 
-**Last Updated:** October 27, 2024  
+**Last Updated:** August 2025
 **Status:** ✅ Ready for GitHub Push  
 **Repository:** https://github.com/Nana-Safo-Duker/Cardiovascular-Risk-Prediction-from-Retinal-Images
 
