@@ -432,3 +432,4 @@ Special thanks to all contributors and reviewers!
 
 </div>
 
+**Last Updated**: August 2025
