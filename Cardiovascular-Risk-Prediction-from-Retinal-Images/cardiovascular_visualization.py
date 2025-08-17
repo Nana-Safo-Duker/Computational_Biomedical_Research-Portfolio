@@ -48,7 +48,7 @@ print("="*80)
 # 1. DATA GENERATION
 # =============================================================================
 
-def generate_simulated_data(n_patients=10000, random_seed=42):
+def generate_simulated_data(n_patients=10000, random_seed=161):
     """
     Generate simulated patient data matching published study statistics.
     
