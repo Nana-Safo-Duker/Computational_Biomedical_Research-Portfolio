@@ -155,3 +155,4 @@ MIT License - see LICENSE file for details
 
 **For detailed instructions, see README.md**
 
+**Last Updated**: August 2025
