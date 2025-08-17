@@ -314,7 +314,7 @@ git push origin main
 
 ---
 
-**Last Updated:** October 27, 2024  
+**Last Updated:** August 2025
 **Guide Version:** 1.0  
 **Status:** Ready for execution
 

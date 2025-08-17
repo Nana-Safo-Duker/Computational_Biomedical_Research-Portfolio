@@ -15,3 +15,4 @@ Additional documentation will be added as the project evolves:
 - Case studies
 - FAQ
 
+**Last Updated**: August 2025

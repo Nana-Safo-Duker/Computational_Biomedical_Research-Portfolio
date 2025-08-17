@@ -478,6 +478,4 @@ For questions or feedback about this project:
 
 *This project demonstrates the integration of scientific communication, data visualization, statistical analysis, and programming to translate cutting-edge biomedical research into accessible educational materials.*
 
-
-
-
+**Last Updated**: August 2025
