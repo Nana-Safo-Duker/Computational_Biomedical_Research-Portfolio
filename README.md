@@ -41,7 +41,9 @@ Portfolio-level figures in `assets/` summarize themes across all ten biomedical 
 
 ![Portfolio cross-project visual overview](assets/portfolio_overview.png)
 
-### Project theme map
+### Project theme map (biomedical only)
+
+Clinical-theme map of the **10 biomedical folders** (neurology/imaging, genomics/expression, targets/treatment). This figure is unique to this repository — not shared with the epidemiology or climate portfolios:
 
 ![Portfolio project theme map](assets/project_theme_map.png)
 
