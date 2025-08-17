@@ -432,4 +432,15 @@ Special thanks to all contributors and reviewers!
 
 </div>
 
+
+## Visualizations
+
+Running the project’s primary Python analysis script regenerates a committed overview figure used below:
+
+![Overview visualization](assets/overview.png)
+
+Stage-wise model accuracy across steatosis/fibrosis-like grades and echogenicity feature distributions.
+
+> Demonstration figure generated from synthetic/demo inputs unless a licensed dataset is provided locally.
+
 **Last Updated**: August 2025

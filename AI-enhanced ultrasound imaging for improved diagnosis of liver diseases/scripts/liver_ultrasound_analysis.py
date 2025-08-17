@@ -73,7 +73,7 @@ def generate_synthetic_data(n_samples=1000):
     
     In production, this would load actual patient data.
     """
-    np.random.seed(42)
+    np.random.seed(141)
     
     data = {
         'age': np.random.normal(55, 15, n_samples).clip(18, 100),
@@ -298,7 +298,11 @@ def create_visualizations(data, y_pred_rf, y_pred_nn, y_test):
     axes[1, 1].set_xlabel('Predicted Label')
     
     plt.tight_layout()
+    from pathlib import Path
+    Path('results').mkdir(parents=True, exist_ok=True)
+    Path('assets').mkdir(parents=True, exist_ok=True)
     plt.savefig('results/liver_analysis_plots.png', dpi=300, bbox_inches='tight')
+    plt.savefig('assets/overview.png', dpi=150, bbox_inches='tight')
     print("\n✓ Visualizations saved to results/liver_analysis_plots.png")
 
 
