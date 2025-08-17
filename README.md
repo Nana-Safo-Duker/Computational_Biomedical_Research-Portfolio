@@ -534,12 +534,12 @@ For questions, suggestions, or collaboration inquiries:
 If you use this code or visualization toolkit in your research or educational materials, please cite:
 
 ```bibtex
-@misc{cardiovascular_viz_2024,
-  author = {[Your Name]},
+@misc{cardiovascular_viz_2025,
+  author = {[Nana Safo Duker ]},
   title = {Cardiovascular Risk Prediction from Retinal Images: Visualization Toolkit},
-  year = {2024},
+  year = {2025},
   howpublished = {GitHub repository},
-  url = {https://github.com/yourusername/cardiovascular-risk-prediction}
+  url = {https://github.com/Nana-Safo-Duker/Predicting-Gene-Expression-from-DNA-Sequence-Using-Deep-Learning-Models}
 }
 ```
 
