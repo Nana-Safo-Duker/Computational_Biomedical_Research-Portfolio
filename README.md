@@ -20,16 +20,7 @@ Cardiovascular diseases (CVD) are the leading cause of death globally. Tradition
 
 ## Repository Contents
 
-### 1. **blog_post.md**
-A comprehensive scientific blog post covering:
-- Research context and significance
-- Detailed methodology analysis
-- Results and key findings
-- Clinical implications and future directions
-- Personal reflection on the research
-- Ethical considerations and societal impact
-
-### 2. **cardiovascular_prediction_visualization.ipynb**
+### 1. **cardiovascular_prediction_visualization.ipynb**
 Interactive Jupyter notebook featuring:
 - Simulated dataset generation matching published statistics
 - Age prediction performance analysis
@@ -42,7 +33,7 @@ Interactive Jupyter notebook featuring:
 - Clinical decision support dashboard
 - Comprehensive performance summaries
 
-### 3. **cardiovascular_visualization.py**
+### 2. **cardiovascular_visualization.py**
 Standalone Python script for automated visualization generation. Includes modular functions for:
 - Data simulation
 - Performance metric calculation
@@ -51,7 +42,7 @@ Standalone Python script for automated visualization generation. Includes modula
 - Batch processing of all visualizations
 - **Robust fallback** for edge cases (ensures all 4 panels display)
 
-### 4. **cardiovascular_visualization_complete.py**
+### 3. **cardiovascular_visualization_complete.py**
 Advanced object-oriented Python script with comprehensive features:
 - CardiovascularRiskAnalyzer class for systematic analysis
 - All features from the simple script plus:
@@ -61,7 +52,7 @@ Advanced object-oriented Python script with comprehensive features:
   - Graceful fallbacks for optional dependencies (cv2, plotly)
 - Production-ready with extensive error handling
 
-### 5. **cardiovascular_visualization.R**
+### 4. **cardiovascular_visualization.R**
 R script providing equivalent functionality for R users:
 - All visualizations from Python scripts
 - Uses ggplot2 for publication-quality figures
@@ -69,7 +60,7 @@ R script providing equivalent functionality for R users:
 - Generates separate output files (e.g., `attention_maps_R.png`)
 - Includes fallback mechanisms for robust execution
 
-### 6. **README.md** (this file)
+### 5. **README.md** (this file)
 Complete project documentation and usage instructions.
 
 ## Recent Updates & Improvements
@@ -400,11 +391,13 @@ Poplin, R., Varadarajan, A. V., Blumer, K., Liu, Y., McConnell, M. V., Corrado, 
 ```
 cardiovascular-risk-prediction/
 │
-├── blog_post.md                                    # Scientific blog post
 ├── cardiovascular_prediction_visualization.ipynb   # Interactive notebook
-├── cardiovascular_visualization.py                 # Python script
+├── cardiovascular_visualization.py                 # Simple Python script
+├── cardiovascular_visualization_complete.py        # Advanced Python script (OOP)
+├── cardiovascular_visualization.R                  # R implementation
 ├── README.md                                       # This file
 ├── requirements.txt                                # Python dependencies
+├── VISUALIZATION_COMPARISON.md                     # Script comparison guide
 │
 ├── outputs/                                        # Generated visualizations
 │   ├── age_prediction_performance.png
@@ -412,10 +405,15 @@ cardiovascular-risk-prediction/
 │   ├── calibration_curves.png
 │   ├── continuous_predictions.png
 │   ├── risk_stratification.png
-│   └── attention_map.png
+│   ├── attention_maps.png
+│   ├── interactive_dashboard.html
+│   └── cardiovascular_analysis_report.txt
 │
-└── data/                                           # (Optional) Custom datasets
-    └── simulated_patients.csv
+└── docs/                                           # Documentation
+    ├── PROJECT_SUMMARY.md
+    ├── FINAL_SYNCHRONIZATION_SUMMARY.md
+    ├── ALL_SCRIPTS_FIX_SUMMARY.md
+    └── COMPLETE_PROJECT_CHECKLIST.md
 ```
 
 ## Troubleshooting
@@ -534,12 +532,12 @@ For questions, suggestions, or collaboration inquiries:
 If you use this code or visualization toolkit in your research or educational materials, please cite:
 
 ```bibtex
-@misc{cardiovascular_viz_2025,
-  author = {[Nana Safo Duker ]},
+@misc{cardiovascular_viz_2024,
+  author = {[Your Name]},
   title = {Cardiovascular Risk Prediction from Retinal Images: Visualization Toolkit},
-  year = {2025},
+  year = {2024},
   howpublished = {GitHub repository},
-  url = {https://github.com/Nana-Safo-Duker/Predicting-Gene-Expression-from-DNA-Sequence-Using-Deep-Learning-Models}
+  url = {https://github.com/yourusername/cardiovascular-risk-prediction}
 }
 ```
 
