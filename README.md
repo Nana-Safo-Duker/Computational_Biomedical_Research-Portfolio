@@ -182,4 +182,4 @@ Questions, collaboration requests, or demo inquiries: open an issue or connect v
 
 Also see related repositories under Nana Safo-Duker's profile for companion climate/energy and health analytics portfolios.
 
-**Last Updated**: August 2025
+**Last Updated**: August 2025.
