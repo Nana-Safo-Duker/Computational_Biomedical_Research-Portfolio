@@ -353,5 +353,16 @@ For questions, suggestions, or collaborations, please open an issue on GitHub or
 
 **Note**: This repository is for educational and research purposes. For clinical applications, ensure proper validation, regulatory compliance, and ethical considerations.
 
+
+## Visualizations
+
+Running the project’s primary Python analysis script regenerates a committed overview figure used below:
+
+![Overview visualization](assets/overview.png)
+
+Multi-class cancer-type confusion matrix and ranked biomarker/feature importances.
+
+> Demonstration figure generated from synthetic/demo inputs unless a licensed dataset is provided locally.
+
 **Last Updated**: August 2025
 

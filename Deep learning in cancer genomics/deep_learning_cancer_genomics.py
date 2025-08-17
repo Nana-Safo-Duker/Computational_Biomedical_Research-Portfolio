@@ -66,38 +66,41 @@ from scipy import stats
 from scipy.stats import ttest_ind, mannwhitneyu, ttest_1samp
 
 
-class CancerGenomicsNet(nn.Module):
-    """
-    Deep neural network for cancer type classification from gene expression data.
-    
-    Architecture:
-    - Input layer: Gene expression features
-    - Hidden layers: Multiple fully connected layers with batch normalization
-    - Output layer: Softmax for multi-class classification
-    """
-    
-    def __init__(self, input_dim, hidden_dims=[256, 128, 64], num_classes=5, dropout_rate=0.3):
-        super(CancerGenomicsNet, self).__init__()
+if TORCH_AVAILABLE:
+    class CancerGenomicsNet(nn.Module):
+        """
+        Deep neural network for cancer type classification from gene expression data.
         
-        layers_list = []
-        prev_dim = input_dim
+        Architecture:
+        - Input layer: Gene expression features
+        - Hidden layers: Multiple fully connected layers with batch normalization
+        - Output layer: Softmax for multi-class classification
+        """
         
-        for hidden_dim in hidden_dims:
-            layers_list.extend([
-                nn.Linear(prev_dim, hidden_dim),
-                nn.BatchNorm1d(hidden_dim),
-                nn.ReLU(),
-                nn.Dropout(dropout_rate)
-            ])
-            prev_dim = hidden_dim
+        def __init__(self, input_dim, hidden_dims=[256, 128, 64], num_classes=5, dropout_rate=0.3):
+            super(CancerGenomicsNet, self).__init__()
+            
+            layers_list = []
+            prev_dim = input_dim
+            
+            for hidden_dim in hidden_dims:
+                layers_list.extend([
+                    nn.Linear(prev_dim, hidden_dim),
+                    nn.BatchNorm1d(hidden_dim),
+                    nn.ReLU(),
+                    nn.Dropout(dropout_rate)
+                ])
+                prev_dim = hidden_dim
+            
+            self.feature_extractor = nn.Sequential(*layers_list)
+            self.classifier = nn.Linear(prev_dim, num_classes)
         
-        self.feature_extractor = nn.Sequential(*layers_list)
-        self.classifier = nn.Linear(prev_dim, num_classes)
-    
-    def forward(self, x):
-        features = self.feature_extractor(x)
-        output = self.classifier(features)
-        return output
+        def forward(self, x):
+            features = self.feature_extractor(x)
+            output = self.classifier(features)
+            return output
+else:
+    CancerGenomicsNet = None  # type: ignore
 
 
 def simulate_cancer_genomics_data(n_samples=500, n_genes=2000, n_cancer_types=5, random_state=42):
@@ -246,7 +249,7 @@ def train_pytorch_model(X_train, X_test, y_train, y_test, num_classes, epochs=50
     
     # Set random seed
     torch.manual_seed(42)
-    np.random.seed(42)
+    np.random.seed(181)
     
     # Convert to tensors
     X_train_tensor = torch.FloatTensor(X_train)
@@ -435,6 +438,8 @@ def compute_feature_importance(model, X_test, y_test, feature_names, model_type=
 def visualize_results(X_train, y_train, y_test, y_pred, y_pred_proba, 
                      class_names, feature_importance=None, top_features=None):
     """Create comprehensive visualizations."""
+    from pathlib import Path
+    Path('assets').mkdir(parents=True, exist_ok=True)
     
     # Set style
     plt.style.use('seaborn-v0_8-darkgrid')
@@ -449,7 +454,7 @@ def visualize_results(X_train, y_train, y_test, y_pred, y_pred_proba,
     plt.ylabel('True Label')
     plt.xlabel('Predicted Label')
     plt.tight_layout()
-    plt.savefig('confusion_matrix.png', dpi=300, bbox_inches='tight')
+    plt.savefig('assets/confusion_matrix.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # 2. ROC Curves
@@ -471,7 +476,7 @@ def visualize_results(X_train, y_train, y_test, y_pred, y_pred_proba,
     plt.legend(loc='lower right')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig('roc_curves.png', dpi=300, bbox_inches='tight')
+    plt.savefig('assets/roc_curves.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # 3. PCA Visualization
@@ -487,7 +492,7 @@ def visualize_results(X_train, y_train, y_test, y_pred, y_pred_proba,
     plt.title('PCA Visualization: First Two Principal Components')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig('pca_visualization.png', dpi=300, bbox_inches='tight')
+    plt.savefig('assets/pca_visualization.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # 4. Feature Importance (if available)
@@ -503,10 +508,10 @@ def visualize_results(X_train, y_train, y_test, y_pred, y_pred_proba,
         plt.title(f'Top {top_n} Most Important Features (Potential Biomarkers)')
         plt.gca().invert_yaxis()
         plt.tight_layout()
-        plt.savefig('feature_importance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('assets/feature_importance.png', dpi=300, bbox_inches='tight')
         plt.close()
     
-    print("\nVisualizations saved successfully!")
+    print('\nVisualizations saved successfully!')
 
 
 def main():

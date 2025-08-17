@@ -62,6 +62,9 @@ venv.bak/
 results/
 outputs/
 *.png
+!assets/
+!assets/*.png
+!assets/**/*.png
 *.jpg
 *.pdf
 *.svg
