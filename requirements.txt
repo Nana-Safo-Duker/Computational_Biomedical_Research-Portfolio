@@ -1,29 +1,36 @@
-# Python Dependencies for Gene Expression Prediction Visualizations
-# ====================================================================
-#
+# Cardiovascular Risk Prediction Visualization - Python Dependencies
 # Install with: pip install -r requirements.txt
-#
 
-# Core Scientific Computing
-numpy>=1.21.0
-scipy>=1.7.0
-pandas>=1.3.0
+# Core numerical computing
+numpy>=1.19.0
 
-# Visualization
-matplotlib>=3.4.0
+# Data manipulation and analysis
+pandas>=1.2.0
+
+# Visualization libraries
+matplotlib>=3.3.0
 seaborn>=0.11.0
 
-# Machine Learning
+# Scientific computing and statistics
+scipy>=1.6.0
+
+# Machine learning metrics and tools
 scikit-learn>=0.24.0
 
-# Jupyter Notebook (optional, for running .ipynb files)
+# Optional: Jupyter notebook support
 jupyter>=1.0.0
-notebook>=6.4.0
 ipykernel>=6.0.0
+notebook>=6.4.0
 
-# Additional utilities
-pillow>=8.3.0  # For image handling
-tqdm>=4.62.0   # Progress bars
+# Optional: Enhanced visualization
+plotly>=5.0.0
+
+# Optional: Progress bars
+tqdm>=4.60.0
+
+
+
+
 
 
 
