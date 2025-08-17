@@ -23,7 +23,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Set random seed for reproducibility
-np.random.seed(42)
+np.random.seed(171)
 
 
 class TreatmentResponsePredictor:

@@ -55,6 +55,9 @@ processed_data/
 
 # Output files
 *.png
+!assets/
+!assets/*.png
+!assets/**/*.png
 *.pdf
 *.jpg
 *.jpeg
