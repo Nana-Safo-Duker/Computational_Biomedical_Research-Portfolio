@@ -28,9 +28,3 @@ plotly>=5.0.0
 # Optional: Progress bars
 tqdm>=4.60.0
 
-
-
-
-
-
-
