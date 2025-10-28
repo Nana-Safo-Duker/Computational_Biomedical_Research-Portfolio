@@ -523,9 +523,9 @@ SOFTWARE.
 
 For questions, suggestions, or collaboration inquiries:
 
-- **Email:** [your.email@example.com]
-- **GitHub:** [github.com/yourusername/cardiovascular-risk-prediction]
-- **LinkedIn:** [linkedin.com/in/yourprofile]
+- **Email:** [freshsafoduker3@gmail.com ]
+- **GitHub:** [https://github.com/Nana-Safo-Duker/Cardiovascular-Risk-Prediction-from-Retinal-Images]
+- **LinkedIn:** [https://www.linkedin.com/in/nana-safo-duker-0aa25227a]
 
 ## Citation
 
@@ -533,11 +533,11 @@ If you use this code or visualization toolkit in your research or educational ma
 
 ```bibtex
 @misc{cardiovascular_viz_2024,
-  author = {[Your Name]},
-  title = {Cardiovascular Risk Prediction from Retinal Images: Visualization Toolkit},
-  year = {2024},
+  author = {[Nana Safo Duker ]},
+  title = {From Retina to Risk: Predicting Cardiovascular Health Through Deep Learning},
+  year = {2025},
   howpublished = {GitHub repository},
-  url = {https://github.com/yourusername/cardiovascular-risk-prediction}
+  url = {https://github.com/Nana-Safo-Duker/Cardiovascular-Risk-Prediction-from-Retinal-Images}
 }
 ```
 
