@@ -30,7 +30,7 @@ load_eye_movement_data <- function(filepath) {
   tryCatch({
     data <- read.csv(filepath, stringsAsFactors = FALSE)
     cat(sprintf("Data loaded successfully: %d samples, %d features\n", 
-                nrow(data), ncol(data))))
+                nrow(data), ncol(data)))
     return(data)
   }, error = function(e) {
     cat(sprintf("Error loading data: %s\n", e$message))
