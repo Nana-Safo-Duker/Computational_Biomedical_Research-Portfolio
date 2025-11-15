@@ -19,21 +19,27 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # Virtual environments
+.env
+.venv
+env/
 venv/
 ENV/
-env/
-.venv
+env.bak/
+vennbak/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-*/.ipynb_checkpoints/*
+*.ipynb_checkpoints/
 
 # R
 .Rhistory
+.Rapp.history
 .RData
-.Rproj.user
+.Ruserdata
+*.Rproj.user/
 
 # IDE
 .vscode/
@@ -41,28 +47,70 @@ env/
 *.swp
 *.swo
 *~
+.DS_Store
+
+# Data files (uncomment if you don't want to track data)
+# *.csv
+# *.tsv
+# *.xlsx
+# *.xls
+# data/
+# datasets/
+
+# Model files (uncomment if models are large)
+# *.pkl
+# *.h5
+# *.hdf5
+# models/
+# saved_models/
+
+# Logs
+*.log
+logs/
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-Desktop.ini
-
-# Generated outputs - Users should regenerate these
-figures/*.png
-figures/*.pdf
-figures/*.jpg
-
-# Internal status reports - Not needed for users
-COMPLETE_ERROR_CHECK_REPORT.md
-ERROR_CHECK_SUMMARY.md
-FINAL_STATUS.md
-UPDATES_SUMMARY.md
-SYNCHRONIZATION_REPORT.md
-SYNC_STATUS.md
-FINAL_SYNC_SUMMARY.md
-GITHUB_PUSH_GUIDE.md
 
 # Temporary files
 *.tmp
+*.temp
 *.bak
-*.log
+*.cache
+
+# Output files
+output/
+results/
+figures/
+plots/
+*.png
+*.jpg
+*.pdf
+!README_images/*.png
+!README_images/*.jpg
+
+# Environment variables
+.env.local
+.env.*.local
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# pytest
+.pytest_cache/
+.tox/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
