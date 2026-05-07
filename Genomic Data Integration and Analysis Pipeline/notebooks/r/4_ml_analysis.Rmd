@@ -1,0 +1,18 @@
+---
+title: "Machine Learning Analysis"
+subtitle: "Genomics Sequence Classification Dataset"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r run-ml}
+source("../../scripts/r/ml_analysis.R")
+```
+
+## ML Analysis Complete
+
+See script output for model evaluation results and visualizations.
+
