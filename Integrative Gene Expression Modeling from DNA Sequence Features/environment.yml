@@ -1,0 +1,25 @@
+name: gene_expression_prediction
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy=1.24.3
+  - pandas=2.0.3
+  - scikit-learn=1.3.0
+  - scipy=1.11.2
+  - matplotlib=3.7.2
+  - seaborn=0.12.2
+  - jupyter=1.0.0
+  - ipykernel=6.25.2
+  - biopython=1.81
+  - pip
+  - pip:
+    - tensorflow==2.13.0
+    - keras==2.13.1
+    - xgboost==2.0.2
+    - lightgbm==4.0.0
+    - plotly==5.17.0
+    - tqdm==4.66.1
+    - joblib==1.3.2
+

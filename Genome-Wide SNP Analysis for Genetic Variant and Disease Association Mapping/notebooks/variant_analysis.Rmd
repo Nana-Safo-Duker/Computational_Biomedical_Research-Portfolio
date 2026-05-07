@@ -1,0 +1,188 @@
+---
+title: "Genetic Variant Identification and Disease Association Analysis (R)"
+output: html_notebook
+---
+
+# Genetic Variant Identification and Disease Association Analysis
+
+This notebook provides comprehensive analysis of genetic variants including:
+- Single-nucleotide polymorphisms (SNPs)
+- Insertions/Deletions (Indels)
+- Structural variants
+
+## Dataset
+- **Source**: genomics_data.csv
+- **Format**: DNA sequences with disease association labels
+- **Labels**: 0 = Control, 1 = Disease
+
+```{r setup}
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(corrplot)
+library(stringr)
+
+# Source the variant identification functions
+source("../src/variant_identification.R")
+source("../src/variant_analysis.R")
+
+cat("Libraries loaded successfully!\n")
+```
+
+## 1. Load and Explore Data
+
+```{r load-data}
+# Load the genomics data
+data_path <- "../data/genomics_data.csv"
+df <- read.csv(data_path, stringsAsFactors = FALSE)
+
+cat("Dataset shape:", nrow(df), "rows,", ncol(df), "columns\n")
+cat("\nFirst few rows:\n")
+print(head(df))
+cat("\nData types:\n")
+print(str(df))
+cat("\nLabel distribution:\n")
+print(table(df$Labels))
+cat("\nSequence length:", nchar(df$Sequences[1]), "nucleotides\n")
+```
+
+## 2. Calculate Consensus Sequence
+
+```{r consensus}
+# Calculate consensus sequence from all sequences
+sequences <- df$Sequences
+consensus <- calculate_consensus_sequence(sequences)
+
+cat("Consensus sequence length:", nchar(consensus), "\n")
+cat("Consensus sequence (first 50 bases):", substr(consensus, 1, 50), "\n")
+cat("\nNucleotide composition in consensus:\n")
+nuc_counts <- table(strsplit(consensus, "")[[1]])
+for (nuc in names(nuc_counts)) {
+  cat("  ", nuc, ":", nuc_counts[nuc], "(", round(nuc_counts[nuc]/nchar(consensus)*100, 2), "%)\n")
+}
+```
+
+## 3. Identify Variants
+
+```{r identify-variants}
+# Process all sequences and identify variants
+cat("Processing sequences and identifying variants...\n")
+results_df <- process_genomics_data(data_path, "../results/variant_analysis_results_R.csv")
+
+cat("\nAnalysis complete!\n")
+cat("Total sequences analyzed:", nrow(results_df), "\n")
+cat("\nFirst few results:\n")
+print(head(results_df[, c("sequence_id", "label", "num_snps", "num_indels", 
+                          "num_structural_variants", "total_variants")], 10))
+```
+
+## 4. Summary Statistics
+
+```{r summary}
+# Generate summary statistics
+summary_stats <- create_summary_statistics(results_df)
+cat("Summary Statistics:\n")
+print(summary_stats)
+```
+
+## 5. Disease Association Analysis
+
+```{r disease-assoc}
+# Analyze disease associations
+disease_assoc <- analyze_disease_association(results_df)
+cat("Disease Association Analysis:\n")
+print(disease_assoc)
+
+# Statistical test
+control_variants <- results_df$total_variants[results_df$label == 0]
+disease_variants <- results_df$total_variants[results_df$label == 1]
+
+t_test <- t.test(control_variants, disease_variants)
+cat("\nT-test results (Control vs Disease):\n")
+cat("  T-statistic:", t_test$statistic, "\n")
+cat("  P-value:", t_test$p.value, "\n")
+cat("  Significant difference:", ifelse(t_test$p.value < 0.05, "Yes", "No"), "(α=0.05)\n")
+```
+
+## 6. Visualizations
+
+```{r visualizations}
+# Create visualizations
+create_visualizations(results_df, "../results")
+
+# Display some plots inline
+p1 <- ggplot(results_df, aes(x = num_snps)) +
+  geom_histogram(bins = 30, fill = "steelblue", alpha = 0.7, color = "black") +
+  labs(title = "Distribution of SNPs per Sequence",
+       x = "Number of SNPs", y = "Frequency") +
+  theme_minimal()
+
+p2 <- ggplot(results_df, aes(x = num_indels)) +
+  geom_histogram(bins = 30, fill = "orange", alpha = 0.7, color = "black") +
+  labs(title = "Distribution of Indels per Sequence",
+       x = "Number of Indels", y = "Frequency") +
+  theme_minimal()
+
+results_df$label_factor <- factor(results_df$label, levels = c(0, 1), 
+                                  labels = c("Control", "Disease"))
+
+p3 <- ggplot(results_df, aes(x = label_factor, y = total_variants, fill = label_factor)) +
+  geom_boxplot() +
+  labs(title = "Total Variants by Disease Label",
+       x = "Disease Label", y = "Number of Total Variants") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Correlation matrix
+correlation_cols <- c("num_snps", "num_indels", "num_structural_variants", "total_variants", "label")
+corr_matrix <- cor(results_df[, correlation_cols])
+
+grid.arrange(p1, p2, p3, ncol = 2, nrow = 2)
+```
+
+## 7. Detailed Variant Analysis
+
+```{r detailed}
+# Examine sequences with highest variant counts
+cat("Sequences with most variants:\n")
+top_variants <- results_df %>% 
+  arrange(desc(total_variants)) %>% 
+  head(10)
+print(top_variants[, c("sequence_id", "label", "num_snps", "num_indels", 
+                      "num_structural_variants", "total_variants")])
+
+# Example: Detailed analysis of first sequence with variants
+example_idx <- which(results_df$total_variants > 0)[1]
+example_seq <- df$Sequences[example_idx + 1]  # +1 because sequence_id is 0-indexed
+example_analysis <- analyze_sequence(example_seq, consensus)
+
+cat("\n\nExample Analysis (Sequence ID:", example_idx - 1, "):\n")
+cat("Label:", df$Labels[example_idx + 1], "\n")
+cat("\nSNPs found:", nrow(example_analysis$snps), "\n")
+if (nrow(example_analysis$snps) > 0) {
+  cat("First 5 SNPs:\n")
+  for (i in 1:min(5, nrow(example_analysis$snps))) {
+    snp <- example_analysis$snps[i, ]
+    cat("  Position", snp$position, ":", snp$reference, "->", snp$alternate, "\n")
+  }
+}
+
+cat("\nIndels found:", nrow(example_analysis$indels), "\n")
+if (nrow(example_analysis$indels) > 0) {
+  cat("First 3 Indels:\n")
+  for (i in 1:min(3, nrow(example_analysis$indels))) {
+    indel <- example_analysis$indels[i, ]
+    cat("  Position", indel$position, ":", indel$type, ", Length:", indel$length, "\n")
+  }
+}
+
+cat("\nStructural variants found:", nrow(example_analysis$structural_variants), "\n")
+if (nrow(example_analysis$structural_variants) > 0) {
+  cat("First 3 Structural Variants:\n")
+  for (i in 1:min(3, nrow(example_analysis$structural_variants))) {
+    sv <- example_analysis$structural_variants[i, ]
+    cat("  Position", sv$position, ":", sv$type, ", Length:", sv$length, "\n")
+  }
+}
+```

@@ -1,0 +1,212 @@
+---
+title: "Regulatory Element Identification in Genomic Sequences"
+subtitle: "R Markdown Analysis"
+author: "Regulatory Element Identification Project"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: show
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.width = 12, fig.height = 8)
+```
+
+## Introduction
+
+This document provides a comprehensive analysis for identifying regulatory elements in DNA sequences using R.
+
+### Regulatory Elements
+
+Regulatory elements are DNA sequences that control gene expression:
+
+1. **Promoters**: Sequences that initiate transcription, typically located upstream of genes
+   - Contain motifs like TATA box (TATAAA), CAAT box, GC box
+   - Usually 100-1000 bp upstream of transcription start site
+
+2. **Enhancers**: Sequences that increase transcription rates
+   - Can be located far from the gene (up to 1 Mb away)
+   - Work in either orientation
+   - Contain binding sites for transcription factors
+
+3. **Silencers**: Sequences that repress transcription
+   - Similar to enhancers but have repressive function
+   - Bind repressor proteins
+
+4. **Insulators**: Sequences that block enhancer-promoter interactions
+   - Create boundaries between regulatory domains
+   - Prevent inappropriate gene activation
+
+## Load Libraries and Data
+
+```{r libraries}
+# Load required libraries
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(caret)
+  library(randomForest)
+  library(e1071)
+  library(pROC)
+  library(ggplot2)
+  library(gridExtra)
+  library(stringr)
+})
+
+# Set seed for reproducibility
+set.seed(42)
+```
+
+```{r load_data}
+# Load data
+df <- read.csv("../data/genomics_data.csv", stringsAsFactors = FALSE)
+
+cat("Total sequences:", nrow(df), "\n")
+cat("Sequence length:", nchar(df$Sequences[1]), "nucleotides\n")
+cat("\nLabel distribution:\n")
+print(table(df$Labels))
+```
+
+## Data Exploration
+
+```{r data_exploration}
+# Label distribution visualization
+ggplot(df, aes(x = factor(Labels))) +
+  geom_bar(fill = c("skyblue", "coral"), alpha = 0.7) +
+  labs(title = "Distribution of Regulatory vs Non-regulatory Sequences",
+       x = "Label", y = "Count") +
+  scale_x_discrete(labels = c("Non-regulatory (0)", "Regulatory (1)")) +
+  theme_minimal()
+```
+
+## Feature Extraction
+
+```{r feature_extraction}
+# Source the R script with feature extraction functions
+source("../scripts/regulatory_element_identification.R")
+
+# Prepare features
+features <- prepare_features(df, k = 3)
+X <- features$X
+y <- features$y
+
+cat("\nFeature matrix dimensions:", dim(X), "\n")
+```
+
+## Data Splitting
+
+```{r data_splitting}
+# Split data into training and testing sets
+train_indices <- createDataPartition(y, p = 0.8, list = FALSE)
+X_train <- X[train_indices, ]
+X_test <- X[-train_indices, ]
+y_train <- y[train_indices]
+y_test <- y[-train_indices]
+
+cat("Training set:", nrow(X_train), "sequences\n")
+cat("Test set:", nrow(X_test), "sequences\n")
+
+# Scale features
+preProc <- preProcess(X_train, method = c("center", "scale"))
+X_train <- predict(preProc, X_train)
+X_test <- predict(preProc, X_test)
+```
+
+## Model Training
+
+```{r model_training}
+# Train models
+models <- train_models(X_train, y_train)
+```
+
+## Model Evaluation
+
+```{r model_evaluation}
+# Evaluate models
+results <- evaluate_models(models, X_test, y_test)
+```
+
+```{r best_model}
+# Find best model
+best_model_name <- names(results)[which.max(sapply(results, function(r) r$f1))]
+best_model_results <- results[[best_model_name]]
+
+cat("Best Model:", best_model_name, "\n")
+cat("  Accuracy: ", round(best_model_results$accuracy, 4), "\n", sep = "")
+cat("  Precision:", round(best_model_results$precision, 4), "\n", sep = "")
+cat("  Recall:   ", round(best_model_results$recall, 4), "\n", sep = "")
+cat("  F1-Score: ", round(best_model_results$f1, 4), "\n", sep = "")
+cat("  AUC-ROC:  ", round(best_model_results$auc, 4), "\n", sep = "")
+```
+
+## Visualizations
+
+```{r visualizations}
+# Generate plots
+generate_plots(results, save_path = "../results")
+```
+
+## Sequence Analysis
+
+```{r sequence_analysis}
+# Compare regulatory vs non-regulatory sequences
+regulatory_seqs <- df[df$Labels == 1, "Sequences"]
+non_regulatory_seqs <- df[df$Labels == 0, "Sequences"]
+
+# Check for common motifs
+motif <- "CGACCGAACTCC"
+reg_motif_count <- sum(str_detect(regulatory_seqs, fixed(motif)))
+nonreg_motif_count <- sum(str_detect(non_regulatory_seqs, fixed(motif)))
+
+cat("Motif '", motif, "' occurrence:\n", sep = "")
+cat("  In regulatory sequences: ", reg_motif_count, "/", length(regulatory_seqs),
+    " (", round(100*reg_motif_count/length(regulatory_seqs), 1), "%)\n", sep = "")
+cat("  In non-regulatory sequences: ", nonreg_motif_count, "/", 
+    length(non_regulatory_seqs), " (", 
+    round(100*nonreg_motif_count/length(non_regulatory_seqs), 1), "%)\n", sep = "")
+```
+
+```{r gc_content}
+# GC content comparison
+calculate_gc_content <- function(seq) {
+  (str_count(seq, "G") + str_count(seq, "C")) / nchar(seq)
+}
+
+reg_gc <- sapply(regulatory_seqs, calculate_gc_content)
+nonreg_gc <- sapply(non_regulatory_seqs, calculate_gc_content)
+
+gc_df <- data.frame(
+  GC_Content = c(reg_gc, nonreg_gc),
+  Type = c(rep("Regulatory", length(reg_gc)), 
+           rep("Non-regulatory", length(nonreg_gc)))
+)
+
+ggplot(gc_df, aes(x = GC_Content, fill = Type)) +
+  geom_histogram(alpha = 0.7, bins = 30, position = "identity") +
+  labs(title = "GC Content Distribution: Regulatory vs Non-regulatory Sequences",
+       x = "GC Content", y = "Frequency") +
+  scale_fill_manual(values = c("coral", "skyblue")) +
+  theme_minimal()
+
+cat("Mean GC content - Regulatory: ", round(mean(reg_gc), 3), "\n", sep = "")
+cat("Mean GC content - Non-regulatory: ", round(mean(nonreg_gc), 3), "\n", sep = "")
+```
+
+## Summary
+
+This analysis demonstrates:
+
+1. Feature extraction from DNA sequences using k-mers, composition, and motifs
+2. Training multiple ML models to identify regulatory elements
+3. Evaluation and comparison of model performance
+4. Identification of sequence characteristics that distinguish regulatory elements
+
+The best performing model can be used to identify regulatory elements in new genomic sequences.
+
+**Best Model**: `r best_model_name`  
+**F1-Score**: `r round(best_model_results$f1, 4)`
+
