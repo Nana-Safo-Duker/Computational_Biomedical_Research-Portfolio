@@ -1,6 +1,6 @@
 # AI/ML Computational Biomedical Research Portfolio
 
-Multi-project laboratory of computational biomedical analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical modeling, explainable ML, and deep learning to solve a different healthcare AI task, from eye-movement based neurological risk modeling to retinal-image cardiovascular risk prediction and sequence-based gene-expression inference.
+Multi-project laboratory of computational biomedical analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical modeling, explainable ML, and deep learning for healthcare AI: neurological eye-movement analytics, retinal cardiovascular risk, DNA-sequence gene expression, cancer genomics and radiomics, ultrasound-based liver diagnosis, cell phenotyping from imaging, drug-target and cancer-target discovery, and computational treatment modeling and optimization.
 
 This README provides the cross-project narrative by documenting structure, shared tooling, reproducibility workflow, and expected deliverables.
 
@@ -20,22 +20,31 @@ This README provides the cross-project narrative by documenting structure, share
 - [Contact](#contact)
 
 ## About
-**Description:** AI/ML computational biomedical portfolio covering neurological signal analytics, retinal-image cardiovascular risk prediction, and genomic sequence-based gene-expression modeling.  
+**Description:** AI/ML computational biomedical portfolio spanning neurology and eye tracking, retinal and medical imaging (including radiomics and ultrasound), cancer genomics and oncology analytics, sequence-based gene expression, cell phenotyping, drug and cancer-target discovery, and treatment optimization workflows.  
 **Website:** https://nana-safo-duker.github.io/  
-**Topics:** biomedical-ai, healthcare-analytics, brain-disorders, eye-tracking, retinal-imaging, cardiovascular-risk, genomics, gene-expression, deep-learning, precision-medicine.
+**Topics:** biomedical-ai, healthcare-analytics, brain-disorders, eye-tracking, retinal-imaging, radiomics, ultrasound, liver-disease, cardiovascular-risk, genomics, cancer-genomics, oncology, gene-expression, cell-phenotyping, drug-discovery, bioinformatics, deep-learning, precision-medicine.
 
 ## Portfolio Overview
-- **Disciplines represented:** digital neurology, medical signal analysis, ophthalmic-image analytics, cardiovascular risk stratification, and DNA-sequence learning for regulatory biology.
+- **Disciplines represented:** digital neurology, medical signal analysis, ophthalmic and radiological image analytics, cardiovascular risk stratification, ultrasound-based hepatology, cancer genomics and multi-omics learning, DNA-sequence models for expression, microscopy/cell phenotyping, drug-target discovery, and computational cancer treatment optimization.
 - **Languages and runtimes:** Python 3.10+, R 4.x, Jupyter Notebooks, pip/requirements, Conda where provided.
 - **Learning paradigms:** supervised ML (RF, SVM, boosting), statistical hypothesis testing, feature engineering, deep learning (CNN/LSTM and sequence models), and explainability-oriented evaluation.
 - **Deliverables:** reproducible notebooks, reusable scripts, trained model artifacts, diagnostics plots, and project-level technical documentation.
 - **Operational footprint:** consolidated multi-project repository with standalone folders, each preserving original code structure and commit lineage through subtree imports.
 
 ## Repository Layout
+Top-level directories (each is an independent project; names match the repository exactly, including spaces where present):
+
 ```text
 Computational_Biomedical_Research-Portfolio/
+├── AI-cancer target identification-drug-discovery/
+├── AI-enhanced ultrasound imaging for improved diagnosis of liver diseases/
 ├── Brain-Disorder-Detection-Through-Eye-Movement/
 ├── Cardiovascular-Risk-Prediction-from-Retinal-Images/
+├── Computational approaches to modelling and optimizing cancer treatment/
+├── Deep learning in cancer genomics/
+├── Image-based cell phenotyping with deep learning/
+├── Machine Learning for Drug Target Identification in Bioinformatics/
+├── Predicting cancer outcomes with radiomics and artificial intelligence in radiology/
 ├── Predicting-Gene-Expression-from-DNA-Sequence-Using-Deep-Learning-Models/
 └── README.md
 ```
@@ -76,7 +85,7 @@ Then:
 > Note: Demo/sample datasets may be synthetic or placeholders. Use licensed, governance-approved datasets for publication or clinical-facing workflows.
 
 ## Workflow Blueprint
-- **Discovery:** choose a project aligned with your biomedical question (neurology, cardiovascular imaging, or genomics).
+- **Discovery:** choose a project aligned with your biomedical question (e.g. neurology, cardiovascular or retinal imaging, radiomics, ultrasound, oncology genomics, gene expression from sequence, cell imaging, pharmacology/target ID, treatment optimization).
 - **Environment provisioning:** recreate dependencies locally using project lock/setup files.
 - **Notebook rehearsal:** execute notebooks end-to-end to validate assumptions and outputs.
 - **Script automation:** move to script-based execution for repeatable training and evaluation.
@@ -99,6 +108,41 @@ Then:
 **Problem statement:** predict gene expression signatures directly from DNA sequence context using deep learning.  
 **Highlights:** sequence encoding pipeline, deep architecture experimentation, performance diagnostics across biological targets, exportable model artifacts.  
 **Use cases:** regulatory genomics research, promoter/enhancer signal modeling, precision medicine hypothesis generation.
+
+### 4) AI-cancer target identification-drug-discovery
+**Problem statement:** support AI-guided cancer target identification workflows for therapeutic and drug-discovery research.  
+**Highlights:** blog-style synthesis plus Python, R, and Jupyter workflows for reproducible analysis.  
+**Use cases:** target discovery prototyping, oncology research communication, coursework and transparent methodology demos.
+
+### 5) AI-enhanced ultrasound imaging for improved diagnosis of liver diseases
+**Problem statement:** apply ML to ultrasound-derived signals and tasks relevant to liver disease diagnosis (e.g., steatosis grading, fibrosis staging, lesion analysis).  
+**Highlights:** multi-algorithm modeling, statistical validation, Python and R implementations, documented methodology.  
+**Use cases:** hepatology imaging research, non-invasive diagnostics education, benchmarking ML against conventional readouts.
+
+### 6) Computational approaches to modelling and optimizing cancer treatment
+**Problem statement:** model treatment response, dosing, and comparative effectiveness using computational and statistical methods.  
+**Highlights:** treatment response prediction motifs, dosing optimization narratives, genomic/clinical visualization, combined ML and pharmacokinetic-style framing.  
+**Use cases:** precision oncology methods exploration, simulation-oriented teaching, treatment analytics prototypes.
+
+### 7) Deep learning in cancer genomics
+**Problem statement:** analyze cancer genomics with deep learning and classical ML across classification, biomarker discovery, survival, and multi-omics angles.  
+**Highlights:** PyTorch/TensorFlow alongside R, preprocessing through evaluation pipelines, linkage to literature (e.g., *Genome Medicine* deep-learning genomics discourse).  
+**Use cases:** pan-cancer genomics benchmarking, biomarker discovery exercises, reproducible oncology ML coursework.
+
+### 8) Image-based cell phenotyping with deep learning
+**Problem statement:** study deep learning approaches to image-based single-cell or cellular phenotyping.  
+**Highlights:** publication-oriented layout with notebooks and scripts in Python and R.  
+**Use cases:** computational microscopy tutorials, phenotype classification experiments, open science documentation.
+
+### 9) Machine Learning for Drug Target Identification in Bioinformatics
+**Problem statement:** identify and prioritize therapeutic targets using ML on bioinformatics-style features and workflows.  
+**Highlights:** end-to-end script and notebook workflows in Python/R with reproducibility-oriented repository hygiene.  
+**Use cases:** target discovery education, comparative ML baselines for omics-derived targets.
+
+### 10) Predicting cancer outcomes with radiomics and artificial intelligence in radiology
+**Problem statement:** predict cancer patient outcomes from quantitative imaging (radiomics) combined with AI.  
+**Highlights:** radiomic feature extraction, statistical testing, predictive modeling, bilingual Python/R analysis paths.  
+**Use cases:** radiology AI research, outcome modeling from imaging cohorts, feature interpretability exercises.
 
 ## Data Sources and Governance
 - Use only datasets with clear licensing and reuse rights.
@@ -131,7 +175,7 @@ Then:
 - Add consistent evaluation report templates for cross-project comparison.
 - Introduce lightweight GitHub Actions checks for scripts/notebook execution.
 - Expand documentation on data governance and clinical translation boundaries.
-- Publish themed releases for neurology, cardiology, and genomics workflows.
+- Publish themed releases for neurology, cardiovascular and radiology imaging, oncology genomics, and therapeutic-discovery workflows.
 
 ## Contact
 Questions, collaboration requests, or demo inquiries: open an issue or connect via https://nana-safo-duker.github.io/.
