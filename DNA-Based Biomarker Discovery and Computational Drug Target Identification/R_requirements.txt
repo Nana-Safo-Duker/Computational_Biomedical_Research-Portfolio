@@ -1,0 +1,30 @@
+# R Dependencies for DNA-Based Biomarker Discovery
+# R version 4.0+
+
+# Data manipulation
+dplyr>=1.0.0
+data.table>=1.14.0
+stringr>=1.4.0
+
+# Machine learning
+caret>=6.0.0
+randomForest>=4.7.0
+e1071>=1.7.0
+
+# Model evaluation
+pROC>=1.18.0
+
+# Visualization
+ggplot2>=3.3.0
+plotly>=4.10.0
+
+# Jupyter notebook support
+IRkernel>=1.3.0
+
+# Utilities
+devtools>=2.4.0
+
+# Optional: For advanced analysis
+# Biostrings>=2.64.0  # For advanced DNA sequence analysis
+# BiocManager>=1.30.0
+
