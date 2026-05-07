@@ -1,0 +1,18 @@
+---
+title: "Comprehensive Exploratory Data Analysis"
+subtitle: "Genomics Sequence Classification Dataset"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r run-eda}
+source("../../scripts/r/comprehensive_eda.R")
+```
+
+## EDA Complete
+
+See script output and visualizations in the results directory.
+
