@@ -1,0 +1,308 @@
+---
+title: "DNA-Based Biomarker Discovery and Drug Target Identification"
+author: "DNA-Based Biomarker Discovery Project"
+date: "2025"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: show
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 6)
+```
+
+## Introduction
+
+This notebook performs comprehensive DNA sequence analysis to identify potential biomarkers and drug targets through feature extraction and machine learning.
+
+## 1. Load Libraries
+
+```{r libraries}
+# Load required libraries
+library(dplyr)
+library(data.table)
+library(stringr)
+library(caret)
+library(randomForest)
+library(e1071)
+library(pROC)
+library(ggplot2)
+library(plotly)
+library(knitr)
+library(DT)
+```
+
+## 2. Load Data
+
+```{r load-data}
+# Load the genomics data
+df <- read.csv("../data/genomics_data.csv", stringsAsFactors = FALSE)
+
+cat("Dataset shape:", nrow(df), "x", ncol(df), "\n")
+cat("\nFirst few rows:\n")
+print(head(df))
+cat("\nLabel distribution:\n")
+print(table(df$Labels))
+cat("\nDataset summary:\n")
+print(summary(df))
+```
+
+## 3. DNA Sequence Feature Extraction
+
+```{r feature-extraction}
+# Source the feature extraction script
+source("../scripts/dna_feature_extraction.R")
+
+# Extract features
+cat("Extracting features from DNA sequences...\n")
+sequences <- df$Sequences
+features <- extract_dna_features(sequences)
+y <- df$Labels
+
+cat("Feature matrix shape:", nrow(features), "x", ncol(features), "\n")
+cat("Number of features:", ncol(features), "\n")
+cat("\nFirst few feature columns:\n")
+print(head(features[, 1:10]))
+```
+
+## 4. Feature Importance Analysis
+
+```{r feature-importance}
+# Prepare data for Random Forest
+X <- as.matrix(features)
+y_factor <- as.factor(y)
+
+# Train Random Forest to get feature importance
+set.seed(42)
+rf_model <- randomForest(
+  x = X,
+  y = y_factor,
+  ntree = 100,
+  mtry = sqrt(ncol(X)),
+  importance = TRUE,
+  do.trace = FALSE
+)
+
+# Get feature importance
+importance_scores <- importance(rf_model)[, "MeanDecreaseGini"]
+feature_importance <- data.frame(
+  feature = colnames(features),
+  importance = importance_scores
+) %>%
+  arrange(desc(importance))
+
+cat("Top 20 Most Important Features:\n")
+print(head(feature_importance, 20))
+
+# Visualize feature importance
+ggplot(head(feature_importance, 20), aes(x = importance, y = reorder(feature, importance))) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(
+    title = "Top 20 Most Important DNA Sequence Features",
+    x = "Feature Importance",
+    y = "Feature Name"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.text.y = element_text(size = 10)
+  )
+
+ggsave("../results/figures/feature_importance.png", width = 12, height = 8, dpi = 300)
+```
+
+## 5. Data Splitting and Preprocessing
+
+```{r data-splitting}
+# Split data into training and testing sets
+set.seed(42)
+train_indices <- createDataPartition(y, p = 0.8, list = FALSE)
+X_train <- X[train_indices, ]
+X_test <- X[-train_indices, ]
+y_train <- y[train_indices]
+y_test <- y[-train_indices]
+
+cat("Training set size:", nrow(X_train), "\n")
+cat("Test set size:", nrow(X_test), "\n")
+cat("\nTraining label distribution:\n")
+print(table(y_train))
+cat("\nTest label distribution:\n")
+print(table(y_test))
+
+# Scale features
+preproc_params <- preProcess(X_train, method = c("center", "scale"))
+X_train_scaled <- predict(preproc_params, X_train)
+X_test_scaled <- predict(preproc_params, X_test)
+```
+
+## 6. Machine Learning Models
+
+```{r train-models}
+# Source the ML pipeline script
+source("../scripts/dna_ml_pipeline.R")
+
+# Train models
+model_results <- train_models(X_train, y_train, X_test, y_test, use_scaling = TRUE)
+results <- model_results$results
+```
+
+## 7. Model Comparison and Visualization
+
+```{r model-comparison}
+# Create comparison data frame
+comparison_df <- data.frame(
+  Model = names(results),
+  Accuracy = sapply(results, function(x) x$accuracy),
+  AUC_ROC = sapply(results, function(x) x$auc),
+  CV_Accuracy = sapply(results, function(x) x$cv_accuracy)
+)
+
+cat("Model Comparison:\n")
+print(kable(comparison_df, digits = 4))
+
+# Visualize model comparison
+p1 <- ggplot(comparison_df, aes(x = Model, y = Accuracy, fill = Model)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Model Accuracy Comparison", y = "Accuracy") +
+  theme_minimal() +
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1))
+
+p2 <- ggplot(comparison_df, aes(x = Model, y = AUC_ROC, fill = Model)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Model AUC-ROC Comparison", y = "AUC-ROC") +
+  theme_minimal() +
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Combine plots
+library(gridExtra)
+grid.arrange(p1, p2, ncol = 2)
+
+ggsave("../results/figures/model_comparison.png", width = 15, height = 5, dpi = 300)
+```
+
+## 8. ROC Curves
+
+```{r roc-curves}
+# Plot ROC curves for all models
+roc_data <- data.frame()
+
+for (name in names(results)) {
+  roc_obj <- roc(y_test, results[[name]]$probabilities)
+  roc_df <- data.frame(
+    FPR = 1 - roc_obj$specificities,
+    TPR = roc_obj$sensitivities,
+    Model = paste0(name, " (AUC = ", round(results[[name]]$auc, 3), ")")
+  )
+  roc_data <- rbind(roc_data, roc_df)
+}
+
+# Add random classifier line
+roc_data <- rbind(roc_data, data.frame(
+  FPR = c(0, 1),
+  TPR = c(0, 1),
+  Model = "Random Classifier"
+))
+
+ggplot(roc_data, aes(x = FPR, y = TPR, color = Model)) +
+  geom_line(size = 1.2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black") +
+  labs(
+    title = "ROC Curves for Different Models",
+    x = "False Positive Rate",
+    y = "True Positive Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    legend.position = "bottom"
+  ) +
+  xlim(0, 1) +
+  ylim(0, 1)
+
+ggsave("../results/figures/roc_curves.png", width = 10, height = 8, dpi = 300)
+```
+
+## 9. Confusion Matrices
+
+```{r confusion-matrices}
+# Create confusion matrices for all models
+library(gridExtra)
+
+confusion_plots <- list()
+for (name in names(results)) {
+  cm <- confusionMatrix(results[[name]]$predictions, as.factor(y_test))
+  cm_df <- as.data.frame(cm$table)
+  
+  p <- ggplot(cm_df, aes(x = Reference, y = Prediction, fill = Freq)) +
+    geom_tile() +
+    geom_text(aes(label = Freq), color = "white", size = 5) +
+    scale_fill_gradient(low = "lightblue", high = "darkblue") +
+    labs(title = paste(name, "Confusion Matrix")) +
+    theme_minimal() +
+    theme(legend.position = "none")
+  
+  confusion_plots[[name]] <- p
+}
+
+# Arrange plots
+do.call(grid.arrange, c(confusion_plots, ncol = 2))
+
+ggsave("../results/figures/confusion_matrices.png", width = 15, height = 12, dpi = 300)
+```
+
+## 10. Biomarker Identification
+
+```{r biomarker-identification}
+# Identify top biomarkers based on feature importance
+top_biomarkers <- head(feature_importance, 15)
+
+cat("Top 15 DNA Sequence Biomarkers:\n")
+cat("=" , rep("=", 60), "\n", sep = "")
+print(kable(top_biomarkers, digits = 4))
+
+# Save biomarker list
+dir.create("../results", recursive = TRUE, showWarnings = FALSE)
+write.csv(top_biomarkers, "../results/top_biomarkers.csv", row.names = FALSE)
+cat("\nBiomarker list saved to '../results/top_biomarkers.csv'\n")
+```
+
+## 11. Summary and Conclusions
+
+```{r summary}
+# Find best model
+best_model_name <- names(results)[which.max(sapply(results, function(x) x$auc))]
+
+cat("\n")
+cat(rep("=", 60), "\n", sep = "")
+cat("ANALYSIS SUMMARY\n")
+cat(rep("=", 60), "\n", sep = "")
+cat("\nTotal sequences analyzed:", nrow(df), "\n")
+cat("Total features extracted:", ncol(features), "\n")
+cat("\nBest performing model:", best_model_name, "\n")
+cat("Best AUC-ROC score:", results[[best_model_name]]$auc, "\n")
+cat("Best accuracy:", results[[best_model_name]]$accuracy, "\n")
+cat("\nTop 5 Biomarkers:\n")
+print(head(top_biomarkers, 5))
+cat("\n")
+cat(rep("=", 60), "\n", sep = "")
+cat("\nKey Findings:\n")
+cat("1. DNA sequence features can effectively distinguish between\n")
+cat("   potential drug targets/biomarkers (label=1) and non-targets (label=0)\n")
+cat("2. Features such as GC content, nucleotide frequencies, and\n")
+cat("   k-mer patterns are highly predictive\n")
+cat("3. Machine learning models can identify important sequence\n")
+cat("   characteristics that may serve as biomarkers for drug targeting\n")
+cat("\n")
+cat(rep("=", 60), "\n", sep = "")
+```
+
+## References
+
+1. Scikit-learn: Machine Learning in Python. Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.
+2. Caret: Classification and Regression Training. Max Kuhn. Contributions from Jed Wing, Steve Weston, et al.
+3. Random Forest: Breiman, L. (2001). Random forests. Machine learning, 45(1), 5-32.
+
