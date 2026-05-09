@@ -1,7 +1,7 @@
 Step-by-Step Guideline 
 
 
-Step 1: Thoroughly Read the Research Paper - https://www.researchgate.net/publication/351853098_Image-based_cell_phenotyping_with_deep_learning
+Step 1: Thoroughly Read the Research Paper - https://www.researchgate.net/publication/355383965_Predicting_cancer_outcomes_with_radiomics_and_artificial_intelligence_in_radiology
 
 First Reading: 
 ●	Skim the paper to grasp the overall topic and structure. 

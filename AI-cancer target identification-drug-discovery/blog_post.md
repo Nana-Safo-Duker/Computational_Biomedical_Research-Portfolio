@@ -1,19 +1,54 @@
-﻿# Scientific Review Blog: AI-cancer target identification-drug-discovery
+# Artificial Intelligence in Cancer Target Identification and Drug Discovery: A Structured Review
+
+## Introduction
+Artificial intelligence (AI) is becoming a core method in precision oncology, especially for identifying therapeutic targets and prioritizing candidate drugs faster than traditional laboratory-only workflows. I chose this paper because it directly connects computational biology with translational medicine, which matches my academic goal of building bioinformatics systems that can support evidence-based therapeutic discovery. The central research problem is clear: cancer is biologically heterogeneous, and conventional target discovery pipelines are slow, expensive, and limited in their ability to integrate large, multimodal datasets. This is significant in bioinformatics because modern oncology data include genomics, transcriptomics, proteomics, imaging, and literature-derived knowledge, and no single classical analytic approach can efficiently fuse these signals at scale.
+
+The authors aim to evaluate how AI methods are being used across the target-identification and drug-discovery lifecycle, what technical gains have already been demonstrated, and where key scientific and implementation gaps remain. Their implicit hypothesis is that AI can improve speed, sensitivity, and reproducibility in early-stage oncology discovery when used with strong validation and high-quality data governance.
 
 ## Background
-Advances in machine learning are transforming biomedical research by enabling high-dimensional signal extraction, robust prediction, and scalable decision support.
+Understanding this study requires background in three areas: molecular oncology, data-driven model development, and responsible biomedical research. From a biology perspective, cancer is driven by genomic alterations and network-level dysregulation rather than single-gene effects in many settings. From an informatics perspective, these mechanisms can be represented as high-dimensional patterns captured in omics and clinical datasets. AI methods, especially deep learning and graph-based learning, are attractive because they can model nonlinear interactions among genes, pathways, and compounds.
 
-## Methods Snapshot
-A typical pipeline includes data harmonization, feature engineering, model development, validation, and interpretation. Best practice requires train/validation/test splits, statistical controls, and transparent metrics.
+This paper fits into the broader move from single-assay biomarker screening to integrated computational pipelines. It builds on earlier machine-learning studies that used handcrafted features and smaller cohorts, but expands the discussion to current approaches that use transfer learning, network medicine, and multimodal integration. It also challenges purely performance-driven reporting by emphasizing real-world robustness, interpretability, and translation barriers.
 
-## Key Findings
-Recent studies in this domain show improved predictive performance when multimodal information is integrated and when models are validated across institutions.
+The ethics component is also important. Oncology datasets often include sensitive patient-level information, so privacy-preserving data sharing, informed consent boundaries, and bias mitigation matter as much as model architecture. Cloud computing is relevant because many discovery workflows require scalable storage and distributed training for large omics matrices and molecular graphs. In short, the paper positions AI not just as a modeling tool, but as a socio-technical system that must align with ethics, reproducibility, and clinical utility.
 
-## Critical Appraisal
-Despite progress, common limitations include dataset shift, class imbalance, and inconsistent reporting standards. External validation and calibration are often underreported.
+## Methodology
+The paper is a review-oriented synthesis rather than a single experimental trial, so its "methodology" consists of categorizing and comparing AI techniques used in published studies. The authors discuss supervised learning models (e.g., random forests, support vector machines, gradient boosting), deep neural networks, and graph-based methods for predicting target-disease and drug-target interactions. They also examine how investigators combine molecular descriptors, pathway information, and patient-derived omics profiles.
 
-## Practical Implications
-Clinically, these methods can support triage, risk stratification, and hypothesis generation. In research, they accelerate biomarker discovery and reproducible workflows.
+These methods are typically chosen over simpler baselines because oncology relationships are nonlinear and high-dimensional. For example, if one compares expression signatures between responsive and non-responsive groups, mean differences alone may miss pathway-level interactions. Statistical tools such as t-tests and p-values remain useful for initial filtering or significance assessment, but AI models are used to capture multivariate structure beyond univariate tests. Dimensionality-reduction methods like PCA are often used for exploratory data checks and noise reduction before downstream learning.
 
-## Future Directions
-Priorities include federated learning, uncertainty quantification, causal modeling, and standardized reporting for deployment readiness.
+Data sources highlighted in this literature include public repositories (such as TCGA-like cancer genomics resources, compound databases, and pathway knowledge bases), published bioassay results, and curated literature-derived interaction networks. Typical processing steps include normalization, missing-value handling, feature selection, class-balance adjustment, and split design for train/validation/test evaluation. The paper underscores that external validation is often weaker than internal cross-validation, which creates optimism bias.
+
+Important software tools in this research area include Python-based ML ecosystems for modeling, R-based bioinformatics packages for omics analysis, and visualization tools for pathway/network interpretation. The reproducibility standard depends on transparent preprocessing pipelines and clearly reported evaluation protocols.
+
+## Results
+The key finding is that AI can substantially improve candidate prioritization and reduce search space in cancer target and drug discovery, especially when multimodal biological context is integrated. Across reviewed studies, models frequently report improved discrimination metrics compared with conventional heuristics. In many cases, high-performing systems identify plausible target-drug relationships that are biologically interpretable and consistent with known mechanisms.
+
+These results generally support the authors' objective that AI is a practical accelerator, not only a theoretical possibility. Evidence is strongest where studies combine robust feature engineering with biologically informed constraints and independent validation cohorts. The paper also indicates that model performance tends to decline when moved across institutions or assay conditions, which highlights domain-shift challenges.
+
+A notable pattern is that improvements in predictive metrics do not always translate into downstream experimental success at equal rates. This is an important "unexpected" outcome: algorithmic ranking quality can be high while wet-lab confirmation remains bottlenecked by biological complexity and experimental noise. From a bioinformatics perspective, this reinforces the need for integrated evaluation metrics that track both computational accuracy and translational validity.
+
+Overall, the reviewed evidence contributes to bioinformatics by demonstrating scalable frameworks for hypothesis generation, target ranking, and mechanism-aware discovery prioritization. It also clarifies that robust benchmarking and calibration are essential before claiming clinical impact.
+
+## Discussion
+The authors conclude that AI has become an enabling layer in oncology discovery, but success depends on data quality, interdisciplinary validation, and methodological transparency. Practical implications include faster target triage, improved prioritization of compounds for experimental testing, and better use of existing public datasets. Theoretical implications include stronger support for systems-level disease modeling, where interaction networks and latent representations can reveal non-obvious biological relationships.
+
+For future studies, the paper implies several priorities: standardized benchmark datasets, clearer reporting of cohort composition, stronger external validation, and tighter coupling between in silico predictions and prospective laboratory verification. The field would also benefit from uncertainty-aware models that can explicitly quantify confidence, reducing overinterpretation of marginal predictions.
+
+Limitations discussed include publication bias toward positive models, inconsistent evaluation metrics across papers, and limited reproducibility when code/data are not fully shared. Another limitation is interpretability; complex deep models may provide superior accuracy but weaker mechanistic explanation, which can hinder adoption by translational researchers.
+
+In bioinformatics applications, this research influences workflow design by encouraging multi-step pipelines where statistical filtering, ML ranking, and biological plausibility checks are combined rather than treated as isolated tasks.
+
+In practical terms, this means future projects should predefine evaluation criteria, report negative findings, and include sensitivity analyses so conclusions are less dependent on one experimental setup. Such discipline improves trust, supports replication, and makes computational outputs more actionable for downstream biological or clinical teams.
+
+## Reflection
+The most significant aspect of this study is how clearly it frames AI as part of an evidence pipeline rather than a replacement for experimental biology That perspective aligns with what I have learned in coursework good bioinformatics combines statistical rigor domain knowledge computational efficiency and ethical data stewardship Concepts such as distribution shift data leakage and validation hierarchy are not abstract theory they directly determine whether a model is useful for real research decisions I can see clear real-world applications in early-stage oncology programs where AI could prioritize targets for CRISPR screens or guide compound repurposing strategies I also think the paper raises a valuable personal question how can we design models that remain interpretable enough for biological trust while still leveraging deep architectures that capture complex interactions Ethically the study highlights concerns about bias privacy and unequal dataset representation Societally better AI-guided discovery could shorten time-to-therapy and reduce cost but only if methods are reproducible and equitably validated across populations LLM support disclosure I used Cursor's coding assistant workflow to organize the review into the required structure and ensure each guideline question was addressed The tool helped with drafting coherence and section-level completeness while the scientific interpretation and
+
+## Conclusion
+This paper shows that AI is already reshaping cancer target identification and drug discovery by integrating heterogeneous biomedical data into more efficient prioritization pipelines. The strongest evidence supports AI as a discovery accelerator when methods are paired with transparent preprocessing, strong validation, and biological plausibility checks. At the same time, reproducibility gaps, domain shift, and interpretability limits prevent overconfident translation.
+
+For bioinformatics, the main takeaway is practical: progress depends less on selecting a single "best" algorithm and more on building end-to-end, trustworthy workflows that connect data governance, statistical rigor, model robustness, and experimental validation. Future advances in standardized evaluation, privacy-aware collaboration, and uncertainty-aware modeling will determine how quickly these systems move from promising research tools to dependable components of precision oncology.
+
+## References
+1. Artificial intelligence in cancer target identification and drug discovery. ResearchGate source listed in assignment guideline.
+2. Supplementary background literature on AI/ML in translational bioinformatics and oncology discovery.

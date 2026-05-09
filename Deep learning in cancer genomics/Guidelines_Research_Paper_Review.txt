@@ -1,7 +1,7 @@
 Step-by-Step Guideline 
 
 
-Step 1: Thoroughly Read the Research Paper - https://www.researchgate.net/publication/351853098_Image-based_cell_phenotyping_with_deep_learning
+Step 1: Thoroughly Read the Research Paper - https://www.researchgate.net/publication/379336440_Deep_learning_in_cancer_genomics_and_histopathology
 
 First Reading: 
 ●	Skim the paper to grasp the overall topic and structure. 

@@ -1,7 +1,7 @@
 Step-by-Step Guideline 
 
 
-Step 1: Thoroughly Read the Research Paper - https://www.researchgate.net/publication/351853098_Image-based_cell_phenotyping_with_deep_learning
+Step 1: Thoroughly Read the Research Paper - https://www.researchgate.net/publication/376578233_The_Application_of_Artificial_Intelligence_AI-Based_Ultrasound_for_the_Diagnosis_of_Fatty_Liver_Disease_A_Systematic_Review
 
 First Reading: 
 ●	Skim the paper to grasp the overall topic and structure. 
