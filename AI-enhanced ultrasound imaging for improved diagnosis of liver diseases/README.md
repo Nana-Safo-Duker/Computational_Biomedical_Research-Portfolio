@@ -1,141 +1,168 @@
 # AI-Enhanced Ultrasound Imaging for Improved Diagnosis of Liver Diseases
+A comprehensive machine learning pipeline for improving liver disease diagnosis support from ultrasound-derived features using statistical validation and predictive modeling.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
+## Table of Contents
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Data
+- Methods
+- Results
+- License
+- Contributing
+- Citation
 
-A comprehensive research project exploring how artificial intelligence can improve liver disease diagnosis from ultrasound-derived features and imaging workflows.
+## Overview
+This project implements a machine learning pipeline tailored to the biomedical research problem represented in this folder. The workflow extracts biologically meaningful features, trains multiple predictive models, and reports interpretable outputs for research and educational use.
 
-## 📋 Table of Contents
+### Key Objectives
+- Feature Extraction: Extract comprehensive features that can highlight potential biomarkers or therapeutic signals
+- Model Training: Train and compare multiple machine learning models
+- Biomarker Identification: Identify the most important predictive features
+- Prediction: Classify outcomes and generate ranked insights for downstream validation
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Usage](#-usage)
-- [Methodology](#-methodology)
-- [Results](#-results)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Citation](#-citation)
-- [Contact](#-contact)
+## Features
+### Comprehensive Feature Extraction
+- Domain-specific feature engineering from project datasets or synthetic demonstration inputs
+- Composition, distribution, and complexity-oriented metrics where applicable
+- Statistical summaries suitable for model training and interpretation
 
-## 🌟 Overview
+### Multiple ML Models
+- Random Forest Classifier
+- Gradient Boosting Classifier
+- Support Vector Machine (SVM)
+- Logistic Regression
 
-This repository provides reproducible Python, R, and notebook workflows for evaluating machine learning approaches to liver disease diagnosis support. The project is intended for educational and research settings, and is structured to be easy to adapt to real clinical datasets.
+### Comprehensive Evaluation
+- Cross-validation
+- ROC curves
+- Confusion matrices
+- Feature importance analysis
+- Model comparison
 
-### Research Focus
+### Dual Language Support
+- Python implementation (.py scripts and Jupyter notebook)
+- R implementation (.R scripts and notebook-compatible workflow)
 
-- Liver steatosis and fibrosis classification support
-- Ultrasound feature-based risk discrimination
-- AI model benchmarking against baseline approaches
-- Statistical validation of model performance
+## Project Structure
+.
+|- README.md
+|- LICENSE
+|- requirements.txt
+|- .gitignore
+|- .gitattributes
+|- scripts/liver_ultrasound_analysis.py
+|- scripts/liver_ultrasound_analysis.R
+|- notebooks/ai_liver_ultrasound_analysis.ipynb
+`- supporting documentation and project files
 
-## ✨ Key Features
-
-- Python pipeline: `scripts/liver_ultrasound_analysis.py`
-- R analysis workflow: `scripts/liver_ultrasound_analysis.R`
-- Interactive notebook: `notebooks/ai_liver_ultrasound_analysis.ipynb`
-- Supporting documentation: `CONTRIBUTING.md`, `PROJECT_SUMMARY.md`
-- Reproducible packaging and dependencies: `setup.py`, `requirements.txt`
-
-## 🚀 Installation
-
+## Installation
 ### Prerequisites
-
-- Python 3.8+
-- R 4.0+ (optional)
+- Python 3.8+ or R 4.0+
 - Git
 
-### Python Setup
-
+### Python Environment Setup
+Option 1: Using pip
 ```bash
-python -m venv .venv
-.\.venv\Scripts\activate
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### R Setup (Optional)
-
-```r
-install.packages(c("ggplot2","dplyr","caret","randomForest","e1071","pROC"))
-```
-
-## 🎯 Quick Start
-
+Option 2: Using conda
 ```bash
-python scripts/liver_ultrasound_analysis.py
-Rscript scripts/liver_ultrasound_analysis.R
-jupyter notebook notebooks/ai_liver_ultrasound_analysis.ipynb
+conda env create -f environment.yml
+conda activate project-env
 ```
 
-## 📁 Project Structure
-
-```text
-.
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── setup.py
-├── CONTRIBUTING.md
-├── code_of_conduct.md
-├── blog_post.md
-├── notebooks/
-│   └── ai_liver_ultrasound_analysis.ipynb
-└── scripts/
-    ├── liver_ultrasound_analysis.py
-    └── liver_ultrasound_analysis.R
+### R Environment Setup
+```bash
+Rscript -e "install.packages(c('dplyr','data.table','stringr','caret','randomForest','e1071','pROC','ggplot2'))"
 ```
 
-## 💻 Usage
-
-### Python
-
+## Usage
+### Python Usage
+1. Run the main Python workflow
 ```bash
 python scripts/liver_ultrasound_analysis.py
 ```
 
-### R
-
-```bash
-Rscript scripts/liver_ultrasound_analysis.R
-```
-
-### Notebook
-
+2. Launch notebook workflow
 ```bash
 jupyter notebook notebooks/ai_liver_ultrasound_analysis.ipynb
 ```
 
-## 🔬 Methodology
+### R Usage
+1. Run the main R workflow
+```bash
+Rscript scripts/liver_ultrasound_analysis.R
+```
 
-- Data preprocessing and feature normalization
-- Supervised model training and evaluation
-- Statistical comparison of diagnostic groups
-- ROC/confusion-matrix based performance reporting
+## Data
+### Dataset Description
+This project is configured for reproducible research workflows using either synthetic/demo data or project-specific real data where available.
 
-## 📊 Results
+### Data Format
+Expected format generally includes:
+- Feature columns (numeric/categorical predictors)
+- Target label column for classification or prediction
+- Optional metadata columns for stratified analysis
 
-Common outputs include:
+### Dataset License
+Please refer to original data source licenses and attribution requirements before reuse.
 
-- Accuracy, precision, recall, F1, and ROC-AUC metrics
-- Comparative visualizations for model behavior
-- Reproducible result summaries for reports
+## Methods
+### Feature Extraction
+The pipeline extracts engineered features relevant to the specific biomedical task in this folder.
 
-## 🛠️ Contributing
+### Machine Learning Models
+- Random Forest
+- Gradient Boosting
+- SVM
+- Logistic Regression
 
-Contributions are welcome through issues and pull requests. See `CONTRIBUTING.md`.
+### Evaluation Metrics
+- Accuracy
+- AUC-ROC
+- Cross-validation
+- Feature importance
 
-## 📜 License
+## Results
+The pipeline generates:
+- Feature importance rankings
+- Model performance comparison
+- ROC and confusion-matrix visualizations
+- Ranked biomarker or predictor candidates
 
-This project is licensed under the MIT License. See `LICENSE`.
+Results are typically saved in generated output directories or notebook artifacts.
 
-## 📖 Citation
+## License
+This project is licensed under the MIT License. See `LICENSE` for details.
 
-If you use this repository, cite the project and the reviewed source paper described in `blog_post.md`.
+## Contributing
+Contributions are welcome.
+- Fork the repository
+- Create a feature branch
+- Commit your changes
+- Push and open a Pull Request
 
-## 📞 Contact
+## Citation
+If you use this project in your research, please cite this repository and reviewed paper sources referenced in project documentation.
 
-Open a GitHub issue for questions, suggestions, or collaboration.
+## Acknowledgments
+Thanks to contributors and the open-source communities behind scikit-learn, pandas, matplotlib, seaborn, and R ecosystem packages.
 
+## Contact
+For questions or suggestions, please open an issue on GitHub.
+
+## Related Projects
+- scikit-learn
+- pandas
+- Biopython (optional)
+
+Note: This project is for research and educational purposes. Validate predictions with experimental or clinical evidence before real-world decision making.

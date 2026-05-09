@@ -1,99 +1,168 @@
 # Brain Disorder Detection Through Eye Movement Analysis
+A comprehensive machine learning pipeline for identifying neurological disorder patterns from eye movement features extracted from wearable-sensor style trajectories.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
+## Table of Contents
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Data
+- Methods
+- Results
+- License
+- Contributing
+- Citation
 
-A comprehensive research project for detecting neurological disorder signatures from eye movement features using machine learning and statistical analysis.
+## Overview
+This project implements a machine learning pipeline tailored to the biomedical research problem represented in this folder. The workflow extracts biologically meaningful features, trains multiple predictive models, and reports interpretable outputs for research and educational use.
 
-## 📋 Table of Contents
+### Key Objectives
+- Feature Extraction: Extract comprehensive features that can highlight potential biomarkers or therapeutic signals
+- Model Training: Train and compare multiple machine learning models
+- Biomarker Identification: Identify the most important predictive features
+- Prediction: Classify outcomes and generate ranked insights for downstream validation
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Usage](#-usage)
-- [Methodology](#-methodology)
-- [Results](#-results)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Citation](#-citation)
-- [Contact](#-contact)
+## Features
+### Comprehensive Feature Extraction
+- Domain-specific feature engineering from project datasets or synthetic demonstration inputs
+- Composition, distribution, and complexity-oriented metrics where applicable
+- Statistical summaries suitable for model training and interpretation
 
-## 🌟 Overview
+### Multiple ML Models
+- Random Forest Classifier
+- Gradient Boosting Classifier
+- Support Vector Machine (SVM)
+- Logistic Regression
 
-This repository uses eye movement trajectories as potential biomarkers for brain disorder screening tasks. It includes Python and R scripts plus a notebook workflow for reproducible analysis.
+### Comprehensive Evaluation
+- Cross-validation
+- ROC curves
+- Confusion matrices
+- Feature importance analysis
+- Model comparison
 
-## ✨ Key Features
+### Dual Language Support
+- Python implementation (.py scripts and Jupyter notebook)
+- R implementation (.R scripts and notebook-compatible workflow)
 
-- Python script: `eye_movement_analysis.py`
-- R script: `eye_movement_analysis.R`
-- Notebook: `eye_movement_analysis.ipynb`
-- Feature extraction, statistical testing, and classifier evaluation
+## Project Structure
+.
+|- README.md
+|- LICENSE
+|- requirements.txt
+|- .gitignore
+|- .gitattributes
+|- eye_movement_analysis.py
+|- eye_movement_analysis.R
+|- eye_movement_analysis.ipynb
+`- supporting documentation and project files
 
-## 🚀 Installation
+## Installation
+### Prerequisites
+- Python 3.8+ or R 4.0+
+- Git
 
+### Python Environment Setup
+Option 1: Using pip
 ```bash
-python -m venv .venv
-.\.venv\Scripts\activate
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-```r
-install.packages(c("dplyr","ggplot2","caret","randomForest","e1071","pROC"))
+Option 2: Using conda
+```bash
+conda env create -f environment.yml
+conda activate project-env
 ```
 
-## 🎯 Quick Start
+### R Environment Setup
+```bash
+Rscript -e "install.packages(c('dplyr','data.table','stringr','caret','randomForest','e1071','pROC','ggplot2'))"
+```
 
+## Usage
+### Python Usage
+1. Run the main Python workflow
 ```bash
 python eye_movement_analysis.py
-Rscript eye_movement_analysis.R
+```
+
+2. Launch notebook workflow
+```bash
 jupyter notebook eye_movement_analysis.ipynb
 ```
 
-## 📁 Project Structure
-
-```text
-.
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── .gitignore
-├── .gitattributes
-├── eye_movement_analysis.py
-├── eye_movement_analysis.R
-└── eye_movement_analysis.ipynb
+### R Usage
+1. Run the main R workflow
+```bash
+Rscript eye_movement_analysis.R
 ```
 
-## 💻 Usage
+## Data
+### Dataset Description
+This project is configured for reproducible research workflows using either synthetic/demo data or project-specific real data where available.
 
-Use scripts for automated runs and the notebook for exploratory analysis.
+### Data Format
+Expected format generally includes:
+- Feature columns (numeric/categorical predictors)
+- Target label column for classification or prediction
+- Optional metadata columns for stratified analysis
 
-## 🔬 Methodology
+### Dataset License
+Please refer to original data source licenses and attribution requirements before reuse.
 
-- Time-series preprocessing of eye-position signals
-- Feature extraction (velocity/acceleration and event proxies)
-- Group comparisons and significance testing
-- Classification model evaluation with standard metrics
+## Methods
+### Feature Extraction
+The pipeline extracts engineered features relevant to the specific biomedical task in this folder.
 
-## 📊 Results
+### Machine Learning Models
+- Random Forest
+- Gradient Boosting
+- SVM
+- Logistic Regression
 
-Typical outputs include feature summaries, model metrics, and visual diagnostics.
+### Evaluation Metrics
+- Accuracy
+- AUC-ROC
+- Cross-validation
+- Feature importance
 
-## 🛠️ Contributing
+## Results
+The pipeline generates:
+- Feature importance rankings
+- Model performance comparison
+- ROC and confusion-matrix visualizations
+- Ranked biomarker or predictor candidates
 
-Contributions are welcome through GitHub issues and pull requests.
+Results are typically saved in generated output directories or notebook artifacts.
 
-## 📜 License
+## License
+This project is licensed under the MIT License. See `LICENSE` for details.
 
-MIT License. See `LICENSE`.
+## Contributing
+Contributions are welcome.
+- Fork the repository
+- Create a feature branch
+- Commit your changes
+- Push and open a Pull Request
 
-## 📖 Citation
+## Citation
+If you use this project in your research, please cite this repository and reviewed paper sources referenced in project documentation.
 
-Please cite this repository and associated literature used in the project.
+## Acknowledgments
+Thanks to contributors and the open-source communities behind scikit-learn, pandas, matplotlib, seaborn, and R ecosystem packages.
 
-## 📞 Contact
+## Contact
+For questions or suggestions, please open an issue on GitHub.
 
-Open an issue for support or collaboration.
+## Related Projects
+- scikit-learn
+- pandas
+- Biopython (optional)
 
+Note: This project is for research and educational purposes. Validate predictions with experimental or clinical evidence before real-world decision making.

@@ -1,105 +1,168 @@
 # Computational Approaches to Modelling and Optimizing Cancer Treatment
+A comprehensive computational oncology pipeline for treatment-response modeling, statistical analysis, and optimization of therapy strategies.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
+## Table of Contents
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Data
+- Methods
+- Results
+- License
+- Contributing
+- Citation
 
-A comprehensive computational oncology project for treatment-response modeling, statistical analysis, and optimization of treatment strategies.
+## Overview
+This project implements a machine learning pipeline tailored to the biomedical research problem represented in this folder. The workflow extracts biologically meaningful features, trains multiple predictive models, and reports interpretable outputs for research and educational use.
 
-## 📋 Table of Contents
+### Key Objectives
+- Feature Extraction: Extract comprehensive features that can highlight potential biomarkers or therapeutic signals
+- Model Training: Train and compare multiple machine learning models
+- Biomarker Identification: Identify the most important predictive features
+- Prediction: Classify outcomes and generate ranked insights for downstream validation
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Usage](#-usage)
-- [Methodology](#-methodology)
-- [Results](#-results)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Citation](#-citation)
-- [Contact](#-contact)
+## Features
+### Comprehensive Feature Extraction
+- Domain-specific feature engineering from project datasets or synthetic demonstration inputs
+- Composition, distribution, and complexity-oriented metrics where applicable
+- Statistical summaries suitable for model training and interpretation
 
-## 🌟 Overview
+### Multiple ML Models
+- Random Forest Classifier
+- Gradient Boosting Classifier
+- Support Vector Machine (SVM)
+- Logistic Regression
 
-This repository combines predictive modeling, statistical inference, and treatment optimization workflows in a reproducible framework for research and educational purposes.
+### Comprehensive Evaluation
+- Cross-validation
+- ROC curves
+- Confusion matrices
+- Feature importance analysis
+- Model comparison
 
-## ✨ Key Features
+### Dual Language Support
+- Python implementation (.py scripts and Jupyter notebook)
+- R implementation (.R scripts and notebook-compatible workflow)
 
-- Python workflow: `scripts/cancer_treatment_optimization.py`
-- R workflow: `scripts/statistical_analysis.R`
-- Notebook workflow: `notebooks/cancer_treatment_modeling.ipynb`
-- Supplementary docs in `docs/`
+## Project Structure
+.
+|- README.md
+|- LICENSE
+|- requirements.txt
+|- .gitignore
+|- .gitattributes
+|- scripts/cancer_treatment_optimization.py
+|- scripts/statistical_analysis.R
+|- notebooks/cancer_treatment_modeling.ipynb
+`- supporting documentation and project files
 
-## 🚀 Installation
+## Installation
+### Prerequisites
+- Python 3.8+ or R 4.0+
+- Git
 
+### Python Environment Setup
+Option 1: Using pip
 ```bash
-python -m venv .venv
-.\.venv\Scripts\activate
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Optional conda setup:
-
+Option 2: Using conda
 ```bash
 conda env create -f environment.yml
-conda activate cancer-treatment-opt
+conda activate project-env
 ```
 
-## 🎯 Quick Start
+### R Environment Setup
+```bash
+Rscript -e "install.packages(c('dplyr','data.table','stringr','caret','randomForest','e1071','pROC','ggplot2'))"
+```
 
+## Usage
+### Python Usage
+1. Run the main Python workflow
 ```bash
 python scripts/cancer_treatment_optimization.py
-Rscript scripts/statistical_analysis.R
+```
+
+2. Launch notebook workflow
+```bash
 jupyter notebook notebooks/cancer_treatment_modeling.ipynb
 ```
 
-## 📁 Project Structure
-
-```text
-.
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── environment.yml
-├── blog_post.md
-├── notebooks/
-│   └── cancer_treatment_modeling.ipynb
-├── scripts/
-│   ├── cancer_treatment_optimization.py
-│   └── statistical_analysis.R
-└── docs/
-    └── README.md
+### R Usage
+1. Run the main R workflow
+```bash
+Rscript scripts/statistical_analysis.R
 ```
 
-## 💻 Usage
+## Data
+### Dataset Description
+This project is configured for reproducible research workflows using either synthetic/demo data or project-specific real data where available.
 
-Run scripts for reproducible outputs and use notebook mode for interactive analysis.
+### Data Format
+Expected format generally includes:
+- Feature columns (numeric/categorical predictors)
+- Target label column for classification or prediction
+- Optional metadata columns for stratified analysis
 
-## 🔬 Methodology
+### Dataset License
+Please refer to original data source licenses and attribution requirements before reuse.
 
-- Treatment-response prediction modeling
-- Statistical analysis of treatment groups and outcomes
-- Optimization routines for treatment strategy exploration
-- Visual analytics for model interpretation
+## Methods
+### Feature Extraction
+The pipeline extracts engineered features relevant to the specific biomedical task in this folder.
 
-## 📊 Results
+### Machine Learning Models
+- Random Forest
+- Gradient Boosting
+- SVM
+- Logistic Regression
 
-Outputs include predictive metrics, statistical summaries, and optimization-related plots/tables.
+### Evaluation Metrics
+- Accuracy
+- AUC-ROC
+- Cross-validation
+- Feature importance
 
-## 🛠️ Contributing
+## Results
+The pipeline generates:
+- Feature importance rankings
+- Model performance comparison
+- ROC and confusion-matrix visualizations
+- Ranked biomarker or predictor candidates
 
-Contributions are welcome through issues and pull requests.
+Results are typically saved in generated output directories or notebook artifacts.
 
-## 📜 License
+## License
+This project is licensed under the MIT License. See `LICENSE` for details.
 
-MIT License. See `LICENSE`.
+## Contributing
+Contributions are welcome.
+- Fork the repository
+- Create a feature branch
+- Commit your changes
+- Push and open a Pull Request
 
-## 📖 Citation
+## Citation
+If you use this project in your research, please cite this repository and reviewed paper sources referenced in project documentation.
 
-Please cite this repository and referenced source materials.
+## Acknowledgments
+Thanks to contributors and the open-source communities behind scikit-learn, pandas, matplotlib, seaborn, and R ecosystem packages.
 
-## 📞 Contact
+## Contact
+For questions or suggestions, please open an issue on GitHub.
 
-Open a GitHub issue for questions and collaboration.
+## Related Projects
+- scikit-learn
+- pandas
+- Biopython (optional)
+
+Note: This project is for research and educational purposes. Validate predictions with experimental or clinical evidence before real-world decision making.
