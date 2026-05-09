@@ -47,6 +47,7 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
@@ -55,8 +56,8 @@ This project implements a machine learning pipeline tailored to the biomedical r
 |- .gitattributes
 |- eye_movement_analysis.py
 |- eye_movement_analysis.R
-|- eye_movement_analysis.ipynb
-`- supporting documentation and project files
+`- eye_movement_analysis.ipynb
+```
 
 ## Installation
 ### Prerequisites

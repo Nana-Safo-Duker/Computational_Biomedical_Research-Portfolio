@@ -47,16 +47,19 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
 |- requirements.txt
 |- .gitignore
 |- .gitattributes
+|- Guidelines_Research_Paper_Review.txt
+|- blog_post.md
 |- cancer_target_identification.py
 |- cancer_target_identification.R
-|- cancer_target_identification.ipynb
-`- supporting documentation and project files
+`- cancer_target_identification.ipynb
+```
 
 ## Installation
 ### Prerequisites

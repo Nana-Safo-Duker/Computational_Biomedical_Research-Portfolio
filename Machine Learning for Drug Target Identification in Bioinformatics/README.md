@@ -47,16 +47,19 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
 |- requirements.txt
 |- .gitignore
 |- .gitattributes
+|- Guidelines_Research_Paper_Review.txt
+|- blog_post.md
 |- drug_target_identification.py
 |- drug_target_analysis.R
-|- drug_target_identification.ipynb
-`- supporting documentation and project files
+`- drug_target_identification.ipynb
+```
 
 ## Installation
 ### Prerequisites

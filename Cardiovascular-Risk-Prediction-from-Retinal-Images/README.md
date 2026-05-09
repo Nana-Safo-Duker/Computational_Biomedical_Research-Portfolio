@@ -47,16 +47,17 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
-|- LICENSE
 |- requirements.txt
-|- .gitignore
-|- .gitattributes
-|- cardiovascular_visualization.py
-|- cardiovascular_visualization.R
 |- cardiovascular_prediction_visualization.ipynb
-`- supporting documentation and project files
+|- cardiovascular_visualization.py
+|- cardiovascular_visualization_complete.py
+|- cardiovascular_visualization.R
+|- VISUALIZATION_COMPARISON.md
+`- project summary and checklist files
+```
 
 ## Installation
 ### Prerequisites

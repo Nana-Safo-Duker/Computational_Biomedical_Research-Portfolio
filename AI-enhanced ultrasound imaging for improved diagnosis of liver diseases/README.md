@@ -47,16 +47,23 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
 |- requirements.txt
+|- setup.py
 |- .gitignore
-|- .gitattributes
-|- scripts/liver_ultrasound_analysis.py
-|- scripts/liver_ultrasound_analysis.R
-|- notebooks/ai_liver_ultrasound_analysis.ipynb
-`- supporting documentation and project files
+|- blog_post.md
+|- code_of_conduct.md
+|- CONTRIBUTING.md
+|- PROJECT_SUMMARY.md
+|- notebooks/
+|  `- ai_liver_ultrasound_analysis.ipynb
+`- scripts/
+   |- liver_ultrasound_analysis.py
+   `- liver_ultrasound_analysis.R
+```
 
 ## Installation
 ### Prerequisites

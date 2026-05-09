@@ -47,16 +47,18 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
 |- requirements.txt
 |- .gitignore
 |- .gitattributes
-|- deep_learning_cancer_genomics.py
-|- deep_learning_cancer_genomics.R
+|- blog_post.md
 |- analysis_notebook.ipynb
-`- supporting documentation and project files
+|- deep_learning_cancer_genomics.py
+`- deep_learning_cancer_genomics.R
+```
 
 ## Installation
 ### Prerequisites

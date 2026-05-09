@@ -47,16 +47,22 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
 |- requirements.txt
-|- .gitignore
-|- .gitattributes
+|- CITATION.cff
+|- QUICK_START.md
+|- INDEX.md
+|- PROJECT_SUMMARY.md
+|- gene_expression_visualizations.ipynb
 |- visualizations.py
 |- visualizations.R
-|- gene_expression_visualizations.ipynb
-`- supporting documentation and project files
+|- test_dependencies.py
+|- run_all_visualizations.bat
+`- run_all_visualizations.sh
+```
 
 ## Installation
 ### Prerequisites

@@ -47,16 +47,21 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
 |- requirements.txt
-|- .gitignore
-|- .gitattributes
-|- scripts/cancer_treatment_optimization.py
-|- scripts/statistical_analysis.R
-|- notebooks/cancer_treatment_modeling.ipynb
-`- supporting documentation and project files
+|- environment.yml
+|- blog_post.md
+|- notebooks/
+|  `- cancer_treatment_modeling.ipynb
+|- scripts/
+|  |- cancer_treatment_optimization.py
+|  `- statistical_analysis.R
+`- docs/
+   `- README.md
+```
 
 ## Installation
 ### Prerequisites

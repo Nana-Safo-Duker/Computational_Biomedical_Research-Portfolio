@@ -47,6 +47,7 @@ This project implements a machine learning pipeline tailored to the biomedical r
 - R implementation (.R scripts and notebook-compatible workflow)
 
 ## Project Structure
+```text
 .
 |- README.md
 |- LICENSE
@@ -55,8 +56,8 @@ This project implements a machine learning pipeline tailored to the biomedical r
 |- .gitattributes
 |- radiomics_analysis.py
 |- radiomics_statistical_analysis.R
-|- radiomics_analysis.ipynb
-`- supporting documentation and project files
+`- radiomics_analysis.ipynb
+```
 
 ## Installation
 ### Prerequisites
