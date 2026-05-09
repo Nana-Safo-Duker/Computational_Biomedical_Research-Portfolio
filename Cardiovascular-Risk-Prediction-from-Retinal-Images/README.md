@@ -1,42 +1,59 @@
 # Cardiovascular Risk Prediction from Retinal Images
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive computational medicine project for analyzing how retinal fundus image-derived signals can support cardiovascular risk prediction workflows through machine learning and visual analytics.
+A comprehensive visual analytics project for retinal-image-based cardiovascular risk prediction, inspired by published deep learning findings.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This project provides a full analysis and visualization toolkit inspired by retinal imaging research for cardiovascular risk stratification. It includes notebook workflows, two Python script variants, and an R implementation for reproducible comparison.
+This repository provides reproducible scripts and notebooks for exploring cardiovascular risk factor prediction and outcome stratification from retinal image-derived signals.
 
-### Key Objectives
+## ✨ Key Features
 
-- Reproduce core cardiovascular risk visualization workflows
-- Compare prediction quality for risk factors and outcomes
-- Provide robust plotting scripts with fallback handling
-- Support educational and research-oriented exploration
-
-## Features
-
-- Interactive notebook: `cardiovascular_prediction_visualization.ipynb`
-- Python script: `cardiovascular_visualization.py`
-- Advanced Python script: `cardiovascular_visualization_complete.py`
+- Notebook workflow: `cardiovascular_prediction_visualization.ipynb`
+- Python scripts: `cardiovascular_visualization.py`, `cardiovascular_visualization_complete.py`
 - R implementation: `cardiovascular_visualization.R`
-- Extensive supplemental documentation files for project tracking
+- Supporting documentation for comparisons and project summaries
 
-## Project Structure
+## 🚀 Installation
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+```r
+install.packages(c("ggplot2","dplyr","pROC","caret"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python cardiovascular_visualization.py
+python cardiovascular_visualization_complete.py
+Rscript cardiovascular_visualization.R
+jupyter notebook cardiovascular_prediction_visualization.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -46,70 +63,37 @@ This project provides a full analysis and visualization toolkit inspired by reti
 ├── cardiovascular_visualization.py
 ├── cardiovascular_visualization_complete.py
 ├── cardiovascular_visualization.R
-├── VISUALIZATION_COMPARISON.md
-└── project summary/checklist documents
+└── VISUALIZATION_COMPARISON.md
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+Run scripts for automated figure generation and use notebook mode for exploratory analysis.
 
-Optional R packages:
+## 🔬 Methodology
 
-```r
-install.packages(c("ggplot2", "dplyr", "pROC", "caret"))
-```
+- Simulated-data-driven reproduction of reported risk metrics
+- ROC/calibration/error visualization workflows
+- Risk stratification and comparative plotting
+- Multi-script robustness handling for stable outputs
 
-## Usage
+## 📊 Results
 
-### Notebook
+Outputs include ROC curves, calibration plots, risk visualizations, and summary metrics.
 
-```bash
-jupyter notebook cardiovascular_prediction_visualization.ipynb
-```
+## 🛠️ Contributing
 
-### Python scripts
+Contributions are welcome through issues and pull requests.
 
-```bash
-python cardiovascular_visualization.py
-python cardiovascular_visualization_complete.py
-```
+## 📜 License
 
-### R script
+MIT License. See project license file.
 
-```bash
-Rscript cardiovascular_visualization.R
-```
+## 📖 Citation
 
-## Methodology
+Please cite this repository and foundational retinal-risk prediction literature.
 
-- Synthetic-data-backed reproduction of published-style metrics
-- Risk-factor prediction and outcome risk stratification workflows
-- ROC, calibration, and error-analysis visual reporting
-- Multi-script fallback logic for robust figure generation
+## 📞 Contact
 
-## Results
-
-Expected outputs include:
-
-- model performance figures (ROC, calibration, scatter/error plots)
-- risk stratification graphics and summary metrics
-- notebook-generated exploratory analyses for reporting
-
-## Contributing
-
-Contributions are welcome via pull requests and issue discussions.
-
-## License
-
-MIT License. See project license files.
-
-## References
-
-- Poplin et al. retinal imaging cardiovascular risk literature
-- Supporting deep learning and clinical risk modeling references
+Open a GitHub issue for support or collaboration.
 

@@ -1,42 +1,59 @@
 # Predicting Gene Expression from DNA Sequence Using Deep Learning Models
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive genomics AI project for modeling gene expression directly from DNA sequence-derived representations, with reproducible visualization and analysis workflows in Python, R, and Jupyter Notebook.
+A comprehensive computational genomics project for sequence-based gene expression prediction and model-performance visualization.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This project investigates sequence-to-expression prediction using deep learning concepts commonly used in regulatory genomics research. It focuses on reproducible analysis, model interpretation, and communication-ready visualization outputs.
+This repository contains reproducible tools to visualize and analyze deep-learning model behavior for predicting gene expression from DNA sequence contexts.
 
-### Key Objectives
+## ✨ Key Features
 
-- Evaluate sequence-based predictors of gene expression
-- Visualize model quality and error characteristics
-- Compare performance across cellular contexts
-- Provide reusable Python and R plotting/analysis scripts
-
-## Features
-
-- Notebook workflow: `gene_expression_visualizations.ipynb`
+- Notebook: `gene_expression_visualizations.ipynb`
 - Python script: `visualizations.py`
 - R script: `visualizations.R`
-- Dependency checker: `test_dependencies.py`
-- Helper run scripts for batch execution
+- Dependency test utility: `test_dependencies.py`
+- Helper run scripts for batch generation
 
-## Project Structure
+## 🚀 Installation
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+```r
+install.packages(c("ggplot2","dplyr","gridExtra","viridis"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python visualizations.py
+Rscript visualizations.R
+jupyter notebook gene_expression_visualizations.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -55,67 +72,36 @@ This project investigates sequence-to-expression prediction using deep learning 
 └── run_all_visualizations.sh
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+Use script mode for reproducible figure generation and notebook mode for interactive analysis.
 
-Optional R packages:
+## 🔬 Methodology
 
-```r
-install.packages(c("ggplot2", "dplyr", "gridExtra", "viridis"))
-```
+- Sequence-to-expression prediction diagnostics
+- Correlation and error-based evaluation
+- Cross-context model comparison visualizations
+- Interpretability-oriented performance reporting
 
-## Usage
+## 📊 Results
 
-### Notebook
+Outputs typically include performance plots, error diagnostics, and comparative model figures.
 
-```bash
-jupyter notebook gene_expression_visualizations.ipynb
-```
+## 🛠️ Contributing
 
-### Python script
+Contributions are welcome via GitHub issues and pull requests.
 
-```bash
-python visualizations.py
-```
-
-### R script
-
-```bash
-Rscript visualizations.R
-```
-
-## Methodology
-
-- Sequence-informed feature modeling and prediction analysis
-- Correlation and error metrics for expression predictions
-- Comparative model visualization across settings
-- Plot-based interpretability (including attention-style summaries where applicable)
-
-## Results
-
-Typical generated outputs:
-
-- predicted vs observed expression performance plots
-- error distribution and calibration-style visual diagnostics
-- cross-cell-type model comparison figures
-
-## Contributing
-
-Contributions are welcome through pull requests and issue discussions.
-
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Deep learning in regulatory genomics and gene expression prediction literature
-- Sequence modeling references listed in project citation and summary files
+Please cite this repository and references listed in `CITATION.cff`.
+
+## 📞 Contact
+
+Open an issue for support or collaboration.
 
 
 

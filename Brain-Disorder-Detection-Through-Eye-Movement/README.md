@@ -1,42 +1,58 @@
 # Brain Disorder Detection Through Eye Movement Analysis
 
-License: MIT | Python 3.9+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive wearable-sensor and eye-movement analytics project for identifying neurological disorder patterns using statistical analysis and machine learning.
+A comprehensive research project for detecting neurological disorder signatures from eye movement features using machine learning and statistical analysis.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This project analyzes eye-movement trajectories as potential biomarkers for brain disorders. It includes reproducible Python and R workflows with notebook-based exploration and visualization.
+This repository uses eye movement trajectories as potential biomarkers for brain disorder screening tasks. It includes Python and R scripts plus a notebook workflow for reproducible analysis.
 
-### Key Objectives
+## ✨ Key Features
 
-- Extract eye-movement features (velocity, acceleration, saccade/fixation proxies)
-- Compare healthy vs disorder groups statistically
-- Train classification models for screening support
-- Provide reproducible scripts for educational research
+- Python script: `eye_movement_analysis.py`
+- R script: `eye_movement_analysis.R`
+- Notebook: `eye_movement_analysis.ipynb`
+- Feature extraction, statistical testing, and classifier evaluation
 
-## Features
+## 🚀 Installation
 
-- Python analysis: `eye_movement_analysis.py`
-- R analysis: `eye_movement_analysis.R`
-- Notebook workflow: `eye_movement_analysis.ipynb`
-- Visualization and feature engineering support
-- Structured environment via `requirements.txt`
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-## Project Structure
+```r
+install.packages(c("dplyr","ggplot2","caret","randomForest","e1071","pROC"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python eye_movement_analysis.py
+Rscript eye_movement_analysis.R
+jupyter notebook eye_movement_analysis.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -50,66 +66,34 @@ This project analyzes eye-movement trajectories as potential biomarkers for brai
 └── eye_movement_analysis.ipynb
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+Use scripts for automated runs and the notebook for exploratory analysis.
 
-Optional R packages:
+## 🔬 Methodology
 
-```r
-install.packages(c("dplyr", "ggplot2", "caret", "randomForest", "e1071", "pROC"))
-```
+- Time-series preprocessing of eye-position signals
+- Feature extraction (velocity/acceleration and event proxies)
+- Group comparisons and significance testing
+- Classification model evaluation with standard metrics
 
-## Usage
+## 📊 Results
 
-### Python
+Typical outputs include feature summaries, model metrics, and visual diagnostics.
 
-```bash
-python eye_movement_analysis.py
-```
+## 🛠️ Contributing
 
-### R
+Contributions are welcome through GitHub issues and pull requests.
 
-```bash
-Rscript eye_movement_analysis.R
-```
-
-### Notebook
-
-```bash
-jupyter notebook eye_movement_analysis.ipynb
-```
-
-## Methodology
-
-- Time-series preprocessing of eye-position traces
-- Derived kinematic feature extraction
-- Group-level hypothesis testing
-- PCA/feature-space exploration
-- Supervised classification evaluation
-
-## Results
-
-Outputs typically include:
-
-- summary statistics and group comparisons
-- classifier performance metrics
-- visual diagnostics for feature distributions and model behavior
-
-## Contributing
-
-Contributions are welcome via issue reports and pull requests.
-
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Literature on eye-movement biomarkers in neurological disorders
-- Wearable sensor analytics and ML diagnostics methods
+Please cite this repository and associated literature used in the project.
+
+## 📞 Contact
+
+Open an issue for support or collaboration.
 

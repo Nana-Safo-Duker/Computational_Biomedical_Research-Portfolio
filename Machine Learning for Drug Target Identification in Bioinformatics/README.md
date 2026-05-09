@@ -2,43 +2,59 @@
 equirements.txt.
 # Machine Learning for Drug Target Identification in Bioinformatics
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive bioinformatics project for identifying promising drug targets using machine learning, statistical analysis, and feature ranking workflows.
+A comprehensive bioinformatics project for identifying candidate drug targets with machine learning and statistical ranking workflows.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This repository provides reproducible workflows for candidate drug target prioritization from biological data representations. The project is suitable for research training, academic portfolio building, and method prototyping.
+This repository supports reproducible target-identification workflows through Python, R, and notebook implementations suitable for research exercises and portfolio demonstrations.
 
-### Key Objectives
+## ✨ Key Features
 
-- Build reproducible target-identification pipelines
-- Compare machine learning models for target prioritization
-- Interpret feature-level biological signals
-- Support dual-language workflows in Python and R
+- Python script: `drug_target_identification.py`
+- R script: `drug_target_analysis.R`
+- Notebook: `drug_target_identification.ipynb`
+- Supporting scientific narrative in `blog_post.md`
 
-## Features
+## 🚀 Installation
 
-- Python workflow: `drug_target_identification.py`
-- R workflow: `drug_target_analysis.R`
-- Notebook walkthrough: `drug_target_identification.ipynb`
-- Scientific narrative file: `blog_post.md`
-- Assignment guideline integration
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-## Project Structure
+```r
+install.packages(c("dplyr","ggplot2","caret","randomForest","e1071","pROC"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python drug_target_identification.py
+Rscript drug_target_analysis.R
+jupyter notebook drug_target_identification.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -54,65 +70,33 @@ This repository provides reproducible workflows for candidate drug target priori
 └── drug_target_identification.ipynb
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+Run Python/R scripts for reproducible outputs and use the notebook for interactive exploration.
 
-Optional R packages:
+## 🔬 Methodology
 
-```r
-install.packages(c("dplyr", "ggplot2", "caret", "randomForest", "e1071", "pROC"))
-```
+- Data preprocessing and scaling
+- Feature ranking and model-based prioritization
+- Cross-validation and classification metrics
+- Target ranking visualization and reporting
 
-## Usage
+## 📊 Results
 
-### Python
+Outputs generally include ranked target lists, model metrics, and result figures.
 
-```bash
-python drug_target_identification.py
-```
+## 🛠️ Contributing
 
-### R
+Contributions are welcome through standard fork-and-pull-request workflow.
 
-```bash
-Rscript drug_target_analysis.R
-```
-
-### Notebook
-
-```bash
-jupyter notebook drug_target_identification.ipynb
-```
-
-## Methodology
-
-- Preprocessing and normalization of bioinformatics features
-- Statistical and model-based feature ranking
-- Supervised learning for target relevance classification
-- Cross-validation and metric reporting
-- Visual interpretation of top candidate targets
-
-## Results
-
-Expected artifacts:
-
-- ranked target candidate outputs
-- model performance summaries
-- supporting plots for scientific communication
-
-## Contributing
-
-Fork, branch, commit, and open a pull request for improvements.
-
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Core literature in ML for drug discovery and target identification
-- Related paper references captured in `blog_post.md`
+Please cite this repository and reviewed source references from `blog_post.md`.
+
+## 📞 Contact
+
+Use GitHub issues for support and collaboration.

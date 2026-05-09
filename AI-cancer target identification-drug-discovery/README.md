@@ -2,43 +2,70 @@
 equirements.txt.
 # AI Cancer Target Identification Drug Discovery
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive machine learning project for identifying cancer-relevant therapeutic targets from bioinformatics-style datasets. The repository includes reproducible Python, R, and notebook workflows for feature analysis, model development, and research reporting.
+A comprehensive machine learning project for identifying cancer-relevant therapeutic targets from bioinformatics-style features and model-driven prioritization pipelines.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This project explores how AI can support early-stage oncology drug discovery by prioritizing candidate molecular targets. The workflows are designed for educational and research use, with synthetic/demo-friendly execution and clear extension paths to real omics datasets.
+This repository provides reproducible workflows for AI-assisted target prioritization in oncology research contexts. It includes Python, R, and notebook implementations designed for transparent educational and portfolio use.
 
-### Key Objectives
+## ✨ Key Features
 
-- Build reproducible pipelines for target prioritization
-- Compare baseline and non-linear machine learning models
-- Provide interpretable rankings of candidate targets
-- Support both Python and R research workflows
+- Python pipeline: `cancer_target_identification.py`
+- R workflow: `cancer_target_identification.R`
+- Notebook analysis: `cancer_target_identification.ipynb`
+- Research narrative: `blog_post.md`
+- Review guideline file: `Guidelines_Research_Paper_Review.txt`
 
-## Features
+## 🚀 Installation
 
-- End-to-end analysis in Python (`cancer_target_identification.py`)
-- Complementary R workflow (`cancer_target_identification.R`)
-- Interactive notebook exploration (`cancer_target_identification.ipynb`)
-- Scientific blog narrative (`blog_post.md`)
-- Reproducible dependency setup via `requirements.txt`
+### Prerequisites
 
-## Project Structure
+- Python 3.8+
+- R 4.0+ (optional)
+- Git
+
+### Python Setup
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### R Setup (Optional)
+
+```r
+install.packages(c("dplyr","ggplot2","caret","randomForest","e1071"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python cancer_target_identification.py
+Rscript cancer_target_identification.R
+jupyter notebook cancer_target_identification.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -54,65 +81,44 @@ This project explores how AI can support early-stage oncology drug discovery by 
 └── cancer_target_identification.ipynb
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-Optional R setup:
-
-```r
-install.packages(c("dplyr", "ggplot2", "caret", "randomForest", "e1071"))
-```
-
-## Usage
-
-### Python
+Run scripts from the project root:
 
 ```bash
 python cancer_target_identification.py
-```
-
-### R
-
-```bash
 Rscript cancer_target_identification.R
 ```
 
-### Notebook
+For interactive analysis:
 
 ```bash
 jupyter notebook cancer_target_identification.ipynb
 ```
 
-## Methodology
+## 🔬 Methodology
 
-- Data preprocessing and normalization
-- Feature ranking and optional dimensionality reduction
-- Classification/regression-style target scoring workflows
-- Cross-validation-based model evaluation
-- Visual reporting of important candidate targets
+- Feature preprocessing and scaling
+- Target relevance scoring with ML models
+- Cross-validation and metric reporting
+- Ranked candidate output generation
 
-## Results
+## 📊 Results
 
-Typical outputs include:
+Typical outputs include ranked targets, model performance summaries, and supporting figures.
 
-- target importance/ranking tables
-- model performance metrics (e.g., ROC-AUC, F1, accuracy)
-- analysis figures supporting scientific discussion
-
-## Contributing
+## 🛠️ Contributing
 
 Contributions are welcome through issues and pull requests.
 
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Foundational literature in AI-driven drug discovery and cancer bioinformatics
-- The review source linked in `Guidelines_Research_Paper_Review.txt`
+Please cite this repository and the reviewed source material in `blog_post.md`.
+
+## 📞 Contact
+
+Open an issue for questions, suggestions, or collaboration.

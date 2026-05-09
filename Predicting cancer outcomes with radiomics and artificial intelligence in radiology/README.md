@@ -1,42 +1,58 @@
 # Predicting Cancer Outcomes with Radiomics and Artificial Intelligence
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive research project exploring radiomics and machine learning for cancer outcome prediction from imaging-derived features. This repository provides complete workflows in Python, R, and Jupyter Notebook for analysis, model development, and reporting.
+A comprehensive research project for predicting cancer outcomes from radiomic features using machine learning and reproducible analysis workflows.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This project investigates whether quantitative radiomic features can improve outcome prediction in oncology workflows. It emphasizes reproducible pipelines, interpretable analysis, and educational clarity.
+This repository investigates whether quantitative radiomic features can improve cancer outcome prediction. It includes complete Python, R, and notebook pipelines for feature analysis, model training, and visual reporting.
 
-### Key Objectives
+## ✨ Key Features
 
-- Extract and evaluate prognostic radiomic features
-- Compare machine learning models for outcome prediction
-- Provide dual-language reproducible workflows
-- Generate figures and metrics suitable for scientific communication
-
-## Features
-
-- Python pipeline: `radiomics_analysis.py`
+- Python analysis pipeline: `radiomics_analysis.py`
 - R statistical workflow: `radiomics_statistical_analysis.R`
 - Interactive notebook: `radiomics_analysis.ipynb`
-- End-to-end modeling, evaluation, and visualization patterns
-- Standard repository setup for reproducibility
+- Reproducible setup and dependency management
 
-## Project Structure
+## 🚀 Installation
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+```r
+install.packages(c("dplyr","ggplot2","caret","randomForest","e1071","pROC"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python radiomics_analysis.py
+Rscript radiomics_statistical_analysis.R
+jupyter notebook radiomics_analysis.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -50,66 +66,34 @@ This project investigates whether quantitative radiomic features can improve out
 └── radiomics_analysis.ipynb
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+Run scripts from the project root for reproducible analysis; use notebook mode for step-by-step exploration.
 
-Optional R dependencies:
+## 🔬 Methodology
 
-```r
-install.packages(c("dplyr", "ggplot2", "caret", "randomForest", "e1071", "pROC"))
-```
+- Radiomic feature preprocessing and normalization
+- Statistical feature comparisons and dimensionality reduction
+- Supervised model training and cross-validation
+- Metric and figure generation (ROC, confusion matrix, feature importance)
 
-## Usage
+## 📊 Results
 
-### Python
+Outputs include performance metrics, diagnostic plots, and ranked feature summaries.
 
-```bash
-python radiomics_analysis.py
-```
+## 🛠️ Contributing
 
-### R
+Contributions are welcome via issues and pull requests.
 
-```bash
-Rscript radiomics_statistical_analysis.R
-```
-
-### Notebook
-
-```bash
-jupyter notebook radiomics_analysis.ipynb
-```
-
-## Methodology
-
-- Radiomic feature processing and normalization
-- Statistical comparison of feature distributions
-- Dimensionality reduction and feature selection
-- Supervised model training (e.g., Random Forest, SVM)
-- Cross-validation with classification metrics and ROC analysis
-
-## Results
-
-Typical project outputs include:
-
-- model performance metrics (AUC, precision, recall, F1)
-- confusion matrix and ROC visualizations
-- ranked feature importance and exploratory plots
-
-## Contributing
-
-Contributions are welcome via pull requests and issue discussions.
-
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Radiomics and imaging-AI literature in precision oncology
-- Publicly documented standards for radiomic reproducibility and validation
+Please cite this repository and source radiomics literature used in the analysis.
+
+## 📞 Contact
+
+Use GitHub issues for questions, suggestions, or collaboration.
 

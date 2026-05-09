@@ -1,42 +1,61 @@
 # Computational Approaches to Modelling and Optimizing Cancer Treatment
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive computational oncology project combining treatment-response modeling, statistical analysis, and dosing optimization workflows for reproducible research and education.
+A comprehensive computational oncology project for treatment-response modeling, statistical analysis, and optimization of treatment strategies.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This repository provides a multi-component framework for computational cancer treatment studies, including machine learning prediction workflows and optimization-oriented analyses. It is designed for reproducible experimentation with script and notebook parity.
+This repository combines predictive modeling, statistical inference, and treatment optimization workflows in a reproducible framework for research and educational purposes.
 
-### Key Objectives
+## ✨ Key Features
 
-- Predict treatment response from clinical/genomic-like features
-- Analyze outcome differences with robust statistical methods
-- Explore treatment optimization through computational models
-- Provide dual-language pipelines in Python and R
+- Python workflow: `scripts/cancer_treatment_optimization.py`
+- R workflow: `scripts/statistical_analysis.R`
+- Notebook workflow: `notebooks/cancer_treatment_modeling.ipynb`
+- Supplementary docs in `docs/`
 
-## Features
+## 🚀 Installation
 
-- Python optimization/prediction script: `scripts/cancer_treatment_optimization.py`
-- R statistical script: `scripts/statistical_analysis.R`
-- Notebook walkthrough: `notebooks/cancer_treatment_modeling.ipynb`
-- Additional technical documentation in `docs/`
-- Environment support via `requirements.txt` and `environment.yml`
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-## Project Structure
+Optional conda setup:
+
+```bash
+conda env create -f environment.yml
+conda activate cancer-treatment-opt
+```
+
+## 🎯 Quick Start
+
+```bash
+python scripts/cancer_treatment_optimization.py
+Rscript scripts/statistical_analysis.R
+jupyter notebook notebooks/cancer_treatment_modeling.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -54,67 +73,33 @@ This repository provides a multi-component framework for computational cancer tr
     └── README.md
 ```
 
-## Installation
+## 💻 Usage
 
-### pip
+Run scripts for reproducible outputs and use notebook mode for interactive analysis.
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+## 🔬 Methodology
 
-### conda (optional)
+- Treatment-response prediction modeling
+- Statistical analysis of treatment groups and outcomes
+- Optimization routines for treatment strategy exploration
+- Visual analytics for model interpretation
 
-```bash
-conda env create -f environment.yml
-conda activate cancer-treatment-opt
-```
+## 📊 Results
 
-## Usage
+Outputs include predictive metrics, statistical summaries, and optimization-related plots/tables.
 
-### Python
+## 🛠️ Contributing
 
-```bash
-python scripts/cancer_treatment_optimization.py
-```
+Contributions are welcome through issues and pull requests.
 
-### R
-
-```bash
-Rscript scripts/statistical_analysis.R
-```
-
-### Notebook
-
-```bash
-jupyter notebook notebooks/cancer_treatment_modeling.ipynb
-```
-
-## Methodology
-
-- Feature processing and model training for response prediction
-- Survival and differential-style statistical analyses in R
-- Optimization-based treatment strategy exploration
-- Comparative visual reporting for decision support workflows
-
-## Results
-
-Typical outputs include:
-
-- predictive performance metrics and confusion/ROC-style diagnostics
-- statistical test summaries and survival-related plots
-- optimization traces and recommendation-oriented summaries
-
-## Contributing
-
-Contributions are welcome. Follow `CONTRIBUTING.md` where applicable.
-
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Computational oncology and treatment optimization literature
-- Supporting references documented in `blog_post.md` and `docs/`
+Please cite this repository and referenced source materials.
+
+## 📞 Contact
+
+Open a GitHub issue for questions and collaboration.

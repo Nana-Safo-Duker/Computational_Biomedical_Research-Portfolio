@@ -1,42 +1,58 @@
 # Deep Learning in Cancer Genomics
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive cancer genomics machine learning project focused on deep learning-assisted cancer classification, biomarker-oriented feature analysis, and reproducible multi-language workflows.
+A comprehensive genomics AI project for cancer classification and biomarker-oriented analysis using deep learning and baseline ML models.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This project explores how deep learning and conventional machine learning can be applied to cancer genomics-style datasets to support classification and biological insight. The repository includes Python, R, and notebook components for end-to-end experimentation.
+This repository provides reproducible cancer genomics analysis pipelines in Python, R, and Jupyter Notebook for educational and research prototyping.
 
-### Key Objectives
-
-- Build reproducible cancer genomics analysis pipelines
-- Compare deep learning with baseline models
-- Identify potentially informative genomic features
-- Provide transparent outputs for scientific communication
-
-## Features
+## ✨ Key Features
 
 - Python script: `deep_learning_cancer_genomics.py`
 - R script: `deep_learning_cancer_genomics.R`
-- Notebook workflow: `analysis_notebook.ipynb`
-- Supporting scientific narrative: `blog_post.md`
-- Dependency management via `requirements.txt`
+- Notebook: `analysis_notebook.ipynb`
+- Supporting narrative and review docs
 
-## Project Structure
+## 🚀 Installation
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+```r
+install.packages(c("ggplot2","dplyr","caret","randomForest","pROC"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python deep_learning_cancer_genomics.py
+Rscript deep_learning_cancer_genomics.R
+jupyter notebook analysis_notebook.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -51,66 +67,34 @@ This project explores how deep learning and conventional machine learning can be
 └── blog_post.md
 ```
 
-## Installation
+## 💻 Usage
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
+Use scripts for reproducible execution and notebook mode for interactive analysis.
 
-Optional R package setup:
+## 🔬 Methodology
 
-```r
-install.packages(c("ggplot2", "dplyr", "caret", "randomForest", "pROC"))
-```
+- Genomics feature preprocessing and scaling
+- Deep-learning and baseline model comparison
+- Cross-validation and evaluation metrics
+- Feature relevance and biomarker-oriented interpretation
 
-## Usage
+## 📊 Results
 
-### Python
+Outputs include model metrics, confusion/ROC visualizations, and feature importance summaries.
 
-```bash
-python deep_learning_cancer_genomics.py
-```
+## 🛠️ Contributing
 
-### R
+Contributions are welcome through issues and pull requests.
 
-```bash
-Rscript deep_learning_cancer_genomics.R
-```
-
-### Notebook
-
-```bash
-jupyter notebook analysis_notebook.ipynb
-```
-
-## Methodology
-
-- Data preprocessing and normalization
-- Feature filtering/selection for high-dimensional genomics data
-- Deep-learning and baseline model comparisons
-- Cross-validation and performance diagnostics
-- Biomarker-oriented importance visualization
-
-## Results
-
-Typical artifacts include:
-
-- classification metrics and confusion/ROC plots
-- feature importance summaries
-- notebook and script outputs for model comparison reporting
-
-## Contributing
-
-Contributions are welcome via pull requests and issue threads.
-
-## License
+## 📜 License
 
 MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Deep learning in cancer genomics literature
-- Source paper references documented in project files
+Please cite this repository and associated literature used in the project.
+
+## 📞 Contact
+
+Open a GitHub issue for support or collaboration.
 

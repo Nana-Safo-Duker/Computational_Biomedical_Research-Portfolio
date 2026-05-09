@@ -1,42 +1,76 @@
 # AI-Enhanced Ultrasound Imaging for Improved Diagnosis of Liver Diseases
 
-License: MIT | Python 3.8+ | R 4.0+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![R 4.0+](https://img.shields.io/badge/R-4.0+-blue.svg)](https://www.r-project.org/)
 
-A comprehensive medical imaging AI project for evaluating machine learning approaches to liver disease diagnosis support using ultrasound-derived data and features.
+A comprehensive research project exploring how artificial intelligence can improve liver disease diagnosis from ultrasound-derived features and imaging workflows.
 
-## Table of Contents
+## 📋 Table of Contents
 
-- Overview
-- Features
-- Project Structure
-- Installation
-- Usage
-- Methodology
-- Results
-- Contributing
-- License
-- References
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Usage](#-usage)
+- [Methodology](#-methodology)
+- [Results](#-results)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Citation](#-citation)
+- [Contact](#-contact)
 
-## Overview
+## 🌟 Overview
 
-This repository provides reproducible workflows for liver disease prediction and analysis using Python, R, and notebook tools. It supports educational experimentation and methodological comparison across model families.
+This repository provides reproducible Python, R, and notebook workflows for evaluating machine learning approaches to liver disease diagnosis support. The project is intended for educational and research settings, and is structured to be easy to adapt to real clinical datasets.
 
-### Key Objectives
+### Research Focus
 
-- Analyze ultrasound-based predictive features
-- Compare AI-driven diagnostic performance against baseline approaches
-- Provide transparent, reproducible implementations in Python and R
-- Generate reporting-ready visualizations for interpretation
+- Liver steatosis and fibrosis classification support
+- Ultrasound feature-based risk discrimination
+- AI model benchmarking against baseline approaches
+- Statistical validation of model performance
 
-## Features
+## ✨ Key Features
 
-- Python script: `scripts/liver_ultrasound_analysis.py`
-- R script: `scripts/liver_ultrasound_analysis.R`
-- Notebook: `notebooks/ai_liver_ultrasound_analysis.ipynb`
-- Documentation and collaboration files (`CONTRIBUTING.md`, `PROJECT_SUMMARY.md`)
-- Packaging support via `setup.py` and dependency pinning via `requirements.txt`
+- Python pipeline: `scripts/liver_ultrasound_analysis.py`
+- R analysis workflow: `scripts/liver_ultrasound_analysis.R`
+- Interactive notebook: `notebooks/ai_liver_ultrasound_analysis.ipynb`
+- Supporting documentation: `CONTRIBUTING.md`, `PROJECT_SUMMARY.md`
+- Reproducible packaging and dependencies: `setup.py`, `requirements.txt`
 
-## Project Structure
+## 🚀 Installation
+
+### Prerequisites
+
+- Python 3.8+
+- R 4.0+ (optional)
+- Git
+
+### Python Setup
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### R Setup (Optional)
+
+```r
+install.packages(c("ggplot2","dplyr","caret","randomForest","e1071","pROC"))
+```
+
+## 🎯 Quick Start
+
+```bash
+python scripts/liver_ultrasound_analysis.py
+Rscript scripts/liver_ultrasound_analysis.R
+jupyter notebook notebooks/ai_liver_ultrasound_analysis.ipynb
+```
+
+## 📁 Project Structure
 
 ```text
 .
@@ -54,21 +88,7 @@ This repository provides reproducible workflows for liver disease prediction and
     └── liver_ultrasound_analysis.R
 ```
 
-## Installation
-
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-Optional R packages:
-
-```r
-install.packages(c("ggplot2", "dplyr", "caret", "randomForest", "e1071", "pROC"))
-```
-
-## Usage
+## 💻 Usage
 
 ### Python
 
@@ -88,31 +108,34 @@ Rscript scripts/liver_ultrasound_analysis.R
 jupyter notebook notebooks/ai_liver_ultrasound_analysis.ipynb
 ```
 
-## Methodology
+## 🔬 Methodology
 
-- Preprocessing of ultrasound-related predictors
-- Model training and comparison across classical and neural approaches
-- Statistical testing and performance validation
-- ROC/confusion-matrix oriented diagnostic visualization
+- Data preprocessing and feature normalization
+- Supervised model training and evaluation
+- Statistical comparison of diagnostic groups
+- ROC/confusion-matrix based performance reporting
 
-## Results
+## 📊 Results
 
-Typical outputs include:
+Common outputs include:
 
-- model metrics (accuracy, precision, recall, F1, ROC-AUC)
-- comparative visualization figures
-- reproducible summaries for research communication
+- Accuracy, precision, recall, F1, and ROC-AUC metrics
+- Comparative visualizations for model behavior
+- Reproducible result summaries for reports
 
-## Contributing
+## 🛠️ Contributing
 
-Contributions are welcome. Follow `CONTRIBUTING.md` for project standards.
+Contributions are welcome through issues and pull requests. See `CONTRIBUTING.md`.
 
-## License
+## 📜 License
 
-MIT License. See `LICENSE`.
+This project is licensed under the MIT License. See `LICENSE`.
 
-## References
+## 📖 Citation
 
-- Liver imaging AI and radiology-ML literature
-- Related methods summarized in project blog and notebook
+If you use this repository, cite the project and the reviewed source paper described in `blog_post.md`.
+
+## 📞 Contact
+
+Open a GitHub issue for questions, suggestions, or collaboration.
 
