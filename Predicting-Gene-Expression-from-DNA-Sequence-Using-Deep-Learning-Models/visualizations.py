@@ -40,7 +40,7 @@ plt.rcParams['font.size'] = 10
 os.makedirs('figures', exist_ok=True)
 
 # Set random seed for reproducibility
-np.random.seed(42)
+np.random.seed(201)
 
 
 def generate_simulated_data(n_samples=2000, correlation=0.85, seed=42):
