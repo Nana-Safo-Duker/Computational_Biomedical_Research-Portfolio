@@ -7,6 +7,7 @@ This README provides the cross-project narrative by documenting structure, share
 ## Table of Contents
 - [About](#about)
 - [Portfolio Overview](#portfolio-overview)
+- [Visualizations](#visualizations)
 - [Repository Layout](#repository-layout)
 - [Technology Stack and Tooling Matrix](#technology-stack-and-tooling-matrix)
 - [Shared Setup Workflow](#shared-setup-workflow)
@@ -31,11 +32,29 @@ This README provides the cross-project narrative by documenting structure, share
 - **Deliverables:** reproducible notebooks, reusable scripts, trained model artifacts, diagnostics plots, and project-level technical documentation.
 - **Operational footprint:** consolidated multi-project repository with standalone folders, each preserving original code structure and commit lineage through subtree imports.
 
+
+## Visualizations
+
+Portfolio-level figures in `assets/` summarize themes across all ten biomedical projects. Each project folder also includes its own `assets/overview.png`.
+
+### Cross-project analytical overview
+
+![Portfolio cross-project visual overview](assets/portfolio_overview.png)
+
+### Project theme map
+
+![Portfolio project theme map](assets/project_theme_map.png)
+
+> Root figures are illustrative summaries. Open any project folder for runnable pipelines and project-specific plots.
+
 ## Repository Layout
 Top-level directories (each is an independent project; names match the repository exactly, including spaces where present):
 
 ```text
 Computational_Biomedical_Research-Portfolio/
+├── assets/                                      # Portfolio-level visualizations
+│   ├── portfolio_overview.png
+│   └── project_theme_map.png
 ├── AI-cancer target identification-drug-discovery/
 ├── AI-enhanced ultrasound imaging for improved diagnosis of liver diseases/
 ├── Brain-Disorder-Detection-Through-Eye-Movement/
@@ -53,8 +72,9 @@ Each project generally follows a consistent pattern:
 - `data/` or sample-data placeholders (replace for production/research deployment)
 - `notebooks/` for exploratory and step-by-step analysis
 - `scripts/` or root scripts for repeatable CLI execution
-- `results/`, `figures/`, and/or `models/` for experiment outputs and checkpoints
+- `results/`, `figures/`, `assets/`, and/or `models/` for experiment outputs, README visualizations, and checkpoints
 - domain documentation (`README.md`, quick-start files, or methodology notes)
+- committed overview figure at `assets/overview.png` (and portfolio-level plots under the root `assets/` folder)
 
 ## Technology Stack and Tooling Matrix
 | Layer | Tooling | Where Used |
